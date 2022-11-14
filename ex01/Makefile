@@ -5,13 +5,17 @@
 NAME		=	phonebook
 
 VPATH		=	.
+## add library here (minilibx, ncurses, libft, ...)
 LIB			=	
 LIBDIR		=
+
 INCLDIR		=	$(addsuffix /include,$(LIBDIR) .)
 BUILDIR		=	build
 DEPDIR		=	$(BUILDIR)/.deps
 
-SRC			=	phonebook.cpp
+SRC			=	main.cpp\
+				Phonebook.cpp\
+				Contact.cpp
 
 OBJ			=	$(SRC:%.cpp=$(BUILDIR)/%.o)
 DEP			=	$(SRC:%.cpp=$(DEPDIR)/%.d)

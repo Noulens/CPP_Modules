@@ -6,16 +6,27 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 11:30:24 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/11 11:41:05 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/14 12:51:18 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __Phonebook__H__
-# define __Phonebook__H__
+#ifndef __PHONEBOOK__H__
+# define __PHONEBOOK__H__
 
 # include <iostream>
 
-# define TRUE 1
-# define FALSE 0
+class Phonebook
+{
+	private:
+		int		_nbcontacts;
+		Contact	_the_contacts[8];
+	public:
+		Phonebook();
+		~Phonebook();
+
+		bool	AddContact();
+		void	DisplayAll();
+		void	DisplayIdx();
+}
 
 #endif

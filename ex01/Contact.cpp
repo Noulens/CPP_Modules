@@ -1,15 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Phonebook.cpp                                      :+:      :+:    :+:   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 11:28:36 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/14 11:35:51 by tnoulens         ###   ########.fr       */
+/*   Created: 2022/11/14 11:36:24 by tnoulens          #+#    #+#             */
+/*   Updated: 2022/11/14 12:42:39 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Phonebook.hpp"
+#include "Contact.hpp"
 
-
+Contact::Contact()
+{
+    _fname = "";
+    _lname = "";
+    _nname = "";
+    _phonenb = "";
+    _darkest_secret = "";
+}
