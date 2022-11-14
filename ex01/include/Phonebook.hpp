@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
+/*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 11:30:24 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/14 12:51:18 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/14 20:44:50 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define __PHONEBOOK__H__
 
 # include <iostream>
+# include "Contact.hpp"
 
 class Phonebook
 {
@@ -24,7 +25,8 @@ class Phonebook
 		Phonebook();
 		~Phonebook();
 
-		bool	AddContact();
+		void	AddContact();
+		void	AddContact(Contact info);
 		void	DisplayAll();
 		void	DisplayIdx();
 }

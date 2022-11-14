@@ -3,28 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
+/*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 11:28:36 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/14 11:38:18 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/14 20:43:55 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "colors.h"
+#include "Phonebook.hpp"
 
 int main(int argc, char **argv)
 {
 	bool		is_active;
 	std::string	str;
 	std::string	option;
+	Phonebook	Pb;
 
 	if (argc == 2)
 	{
 		str = argv[1];
 		if (str == "build")
 		{
-			/* build contact */
+			Pb.AddContact(Contact("dude ONE", "Duder", "bob", "+123547895", "hehehe"));
+			Pb.AddContact(Contact("dude ONE", "Duder", "bob", "0123547895", "hahaha"));
+			Pb.AddContact(Contact("dude ONE", "Duder", "bob", "0123547895456", "hihihi"));
+			Pb.AddContact(Contact("dude ONE", "Duder the dudest", "bob", "+123547895", "huhuhu"));
+			Pb.AddContact(Contact("dude ONE", "Duder", "bob", "+123547895", "hohoho"));
+			Pb.AddContact(Contact("dude ONE", "Duder", "bob", "+123547895", "hyhyhy"));
+			Pb.AddContact(Contact("dude ONE", "Duder", "bob", "+123547895", "jajaja"));
+			Pb.AddContact(Contact("dude ONE", "Duder", "bob", "+123547895", "jejeje"));
 		}
 	}	
 	is_active = true;
