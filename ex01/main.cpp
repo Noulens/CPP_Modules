@@ -6,7 +6,7 @@
 /*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 11:28:36 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/14 20:43:55 by waxxy            ###   ########.fr       */
+/*   Updated: 2022/11/14 21:18:54 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ int main(int argc, char **argv)
 		std::getline(std::cin, option);
 		if (option == "ADD")
 		{
-			/* do add */
+			std::cout << "Add contact info" << std::endl;
+			Pb.AddContact();
 		}
 		else if (option == "SEARCH")
 		{
