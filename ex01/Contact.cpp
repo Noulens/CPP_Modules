@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 11:36:24 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/15 12:11:14 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/15 15:34:52 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ bool	Contact::set_drkscrt(std::string darkest_secret)
 	return (true);
 }
 
-std::string	Contact::get_fname(bool shortest)
+std::string	Contact::get_fname(bool shortest) const
 {
 	std::string shorter = _fname;
 	if (shortest == true && _fname.length() > 10)
@@ -108,7 +108,7 @@ std::string	Contact::get_fname(bool shortest)
 	return (shorter);
 }
 
-std::string	Contact::get_lname(bool shortest)
+std::string	Contact::get_lname(bool shortest) const
 {
 	std::string shorter = _lname;
 	if (shortest == true && _lname.length() > 10)
@@ -119,7 +119,7 @@ std::string	Contact::get_lname(bool shortest)
 	return (shorter);	
 }
 
-std::string	Contact::get_nname(bool shortest)
+std::string	Contact::get_nname(bool shortest) const
 {
 	std::string shorter = _nname;
 	if (shortest == true && _nname.length() > 10)
@@ -130,7 +130,7 @@ std::string	Contact::get_nname(bool shortest)
 	return (shorter);	
 }
 
-std::string	Contact::get_phonenb(bool shortest)
+std::string	Contact::get_phonenb(bool shortest) const
 {
 	std::string shorter = _phonenb;
 	if (shortest == true && _phonenb.length() > 10)
@@ -141,7 +141,7 @@ std::string	Contact::get_phonenb(bool shortest)
 	return (shorter);	
 }
 
-std::string	Contact::get_drkscrt(bool shortest)
+std::string	Contact::get_drkscrt(bool shortest) const
 {
 	std::string shorter = _darkest_secret;
 	if (shortest == true && _darkest_secret.length() > 10)

@@ -2,7 +2,7 @@
 ## Variables ##
 ###############
 
-NAME		=	phonebook
+NAME		=	Account
 
 VPATH		=	.
 ## add library here (minilibx, ncurses, libft, ...)
@@ -13,9 +13,8 @@ INCLDIR		=	$(addsuffix /include,$(LIBDIR) .)
 BUILDIR		=	build
 DEPDIR		=	$(BUILDIR)/.deps
 
-SRC			=	main.cpp\
-				Phonebook.cpp\
-				Contact.cpp
+SRC			=	tests.cpp\
+				Account.cpp
 
 OBJ			=	$(SRC:%.cpp=$(BUILDIR)/%.o)
 DEP			=	$(SRC:%.cpp=$(DEPDIR)/%.d)

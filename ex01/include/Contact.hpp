@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 11:30:07 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/15 12:07:48 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/15 15:33:10 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ class Contact
 		bool		set_phonenb(std::string phonenb);
 		bool		set_drkscrt(std::string darkest_secret);
 
-		std::string	get_fname(bool shortest);
-		std::string	get_lname(bool shortest);
-		std::string	get_nname(bool shortest);
-		std::string	get_phonenb(bool shortest);
-		std::string	get_drkscrt(bool shortest);
+		std::string	get_fname(bool shortest) const;
+		std::string	get_lname(bool shortest) const;
+		std::string	get_nname(bool shortest) const;
+		std::string	get_phonenb(bool shortest) const;
+		std::string	get_drkscrt(bool shortest) const;
 };
 
 #endif

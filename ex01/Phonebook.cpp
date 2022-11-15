@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 11:28:36 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/15 14:17:03 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/15 15:38:44 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,26 +117,29 @@ void	Phonebook::DisplayIdx()
 	std::string idx;
 	int			id;
 
-	std::cout << "Would you like to know more ?" << std::endl;
-	while (true)
+	if (_nbcontacts != 0)
 	{
-		std::cout << UNDERLINE_BLUE << DARK_BLUE << "enter index" << RESET << DARK_BLUE << "> " << RESET;
-		std::getline(std::cin, idx);
-		id = 0;
-		if (idx.length() == 1)
+		std::cout << "Would you like to know more ?" << std::endl;
+		while (true)
 		{
-			id = idx[0] - 48;
-			if (id > _nbcontacts || id <= 0 || !std::isdigit(idx[0]))
-				std::cout << RED << "enter valid index : " << "between 1 and " << _nbcontacts << RESET << std::endl;
+			std::cout << UNDERLINE_BLUE << DARK_BLUE << "enter index" << RESET << DARK_BLUE << "> " << RESET;
+			std::getline(std::cin, idx);
+			id = 0;
+			if (idx.length() == 1)
+			{
+				id = idx[0] - 48;
+				if (id > _nbcontacts || id <= 0 || !std::isdigit(idx[0]))
+					std::cout << RED << "enter valid index : " << "between 1 and " << _nbcontacts << RESET << std::endl;
+				else
+					break ;
+			}
 			else
-				break ;
+				std::cout << RED << "enter valid index : " << "between 1 and " << _nbcontacts << RESET << std::endl;
 		}
-		else
-			std::cout << RED << "enter valid index : " << "between 1 and " << _nbcontacts << RESET << std::endl;
+		std::cout << _the_contacts[id - 1].get_fname(false) << std::endl;
+		std::cout << _the_contacts[id - 1].get_lname(false) << std::endl;
+		std::cout << _the_contacts[id - 1].get_nname(false) << std::endl;
+		std::cout << _the_contacts[id - 1].get_phonenb(false) << std::endl;
+		std::cout << _the_contacts[id - 1].get_drkscrt(false) << std::endl;
 	}
-	std::cout << _the_contacts[id - 1].get_fname(false) << std::endl;
-	std::cout << _the_contacts[id - 1].get_lname(false) << std::endl;
-	std::cout << _the_contacts[id - 1].get_nname(false) << std::endl;
-	std::cout << _the_contacts[id - 1].get_phonenb(false) << std::endl;
-	std::cout << _the_contacts[id - 1].get_drkscrt(false) << std::endl;
 }
