@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 11:30:07 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/14 19:47:46 by waxxy            ###   ########.fr       */
+/*   Updated: 2022/11/15 12:07:48 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ class Contact
     public:
         Contact();
 		Contact(std::string fname, std::string lname, std::string nname, std::string phonenb, std::string darkest_secret);
-		~Contact();
 		
 		bool		set_fname(std::string fname);
 		bool		set_lname(std::string lname);
@@ -34,11 +33,11 @@ class Contact
 		bool		set_phonenb(std::string phonenb);
 		bool		set_drkscrt(std::string darkest_secret);
 
-		std::string	get_fname(std::string fname);
-		std::string	get_lname(std::string lname);
-		std::string	get_nname(std::string nname);
-		std::string	get_phonenb(std::string phonenb);
-		std::string	get_drkscrt(std::string darkest_secret);		
+		std::string	get_fname(bool shortest);
+		std::string	get_lname(bool shortest);
+		std::string	get_nname(bool shortest);
+		std::string	get_phonenb(bool shortest);
+		std::string	get_drkscrt(bool shortest);
 };
 
 #endif

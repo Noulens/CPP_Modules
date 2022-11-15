@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 11:36:24 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/14 19:52:22 by waxxy            ###   ########.fr       */
+/*   Updated: 2022/11/15 12:11:14 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Contact::Contact(std::string fname, std::string lname, std::string nname, std::s
 
 bool	Contact::set_fname(std::string fname)
 {
-	if (fname[0] == '\0')
+	if (fname.length() == 0)
 		return (false);
 	for (size_t i = 0; i < fname.length(); i++)
 	{
@@ -45,7 +45,7 @@ bool	Contact::set_fname(std::string fname)
 
 bool	Contact::set_lname(std::string lname)
 {
-	if (lname[0] == '\0')
+	if (lname.length() == 0)
 		return (false);
 	for (size_t i = 0; i < lname.length(); i++)
 	{
@@ -58,7 +58,7 @@ bool	Contact::set_lname(std::string lname)
 
 bool	Contact::set_nname(std::string nname)
 {
-	if (nname[0] == '\0')
+	if (nname.length() == 0)
 		return (false);
 	for (size_t i = 0; i < nname.length(); i++)
 	{
@@ -74,7 +74,7 @@ bool	Contact::set_phonenb(std::string phonenb)
 	size_t	i;
 
 	i = 0;
-	if (phonenb[i] == '\0')
+	if (phonenb.length() == 0)
 		return (false);
 	if (std::isdigit(phonenb[i]) || phonenb[i] == '+')
 		++i;
@@ -91,8 +91,63 @@ bool	Contact::set_phonenb(std::string phonenb)
 
 bool	Contact::set_drkscrt(std::string darkest_secret)
 {
-	if (darkest_secret[0] == '\0')
+	if (darkest_secret.length() == 0)
 		return (false);
 	_darkest_secret = darkest_secret;
 	return (true);
+}
+
+std::string	Contact::get_fname(bool shortest)
+{
+	std::string shorter = _fname;
+	if (shortest == true && _fname.length() > 10)
+	{
+		shorter.resize(9);
+		shorter.append(".");
+	}
+	return (shorter);
+}
+
+std::string	Contact::get_lname(bool shortest)
+{
+	std::string shorter = _lname;
+	if (shortest == true && _lname.length() > 10)
+	{
+		shorter.resize(9);
+		shorter.append(".");
+	}
+	return (shorter);	
+}
+
+std::string	Contact::get_nname(bool shortest)
+{
+	std::string shorter = _nname;
+	if (shortest == true && _nname.length() > 10)
+	{
+		shorter.resize(9);
+		shorter.append(".");
+	}
+	return (shorter);	
+}
+
+std::string	Contact::get_phonenb(bool shortest)
+{
+	std::string shorter = _phonenb;
+	if (shortest == true && _phonenb.length() > 10)
+	{
+		shorter.resize(9);
+		shorter.append(".");
+	}
+	return (shorter);	
+}
+
+std::string	Contact::get_drkscrt(bool shortest)
+{
+	std::string shorter = _darkest_secret;
+	if (shortest == true && _darkest_secret.length() > 10)
+	{
+		shorter.resize(9);
+		shorter.append(".");
+	}
+	return (shorter);	
 }

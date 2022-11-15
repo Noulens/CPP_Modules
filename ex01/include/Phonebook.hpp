@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 11:30:24 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/14 20:44:50 by waxxy            ###   ########.fr       */
+/*   Updated: 2022/11/15 14:16:20 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 # define __PHONEBOOK__H__
 
 # include <iostream>
+# include <iomanip>
+# include <cstdlib>
 # include "Contact.hpp"
+# include "colors.h"
 
 class Phonebook
 {
@@ -23,12 +26,11 @@ class Phonebook
 		Contact	_the_contacts[8];
 	public:
 		Phonebook();
-		~Phonebook();
 
 		void	AddContact();
 		void	AddContact(Contact info);
 		void	DisplayAll();
 		void	DisplayIdx();
-}
+};
 
 #endif

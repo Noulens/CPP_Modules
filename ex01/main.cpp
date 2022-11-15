@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 11:28:36 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/14 21:18:54 by waxxy            ###   ########.fr       */
+/*   Updated: 2022/11/15 13:50:05 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ int main(int argc, char **argv)
 		if (str == "build")
 		{
 			Pb.AddContact(Contact("dude ONE", "Duder", "bob", "+123547895", "hehehe"));
-			Pb.AddContact(Contact("dude ONE", "Duder", "bob", "0123547895", "hahaha"));
-			Pb.AddContact(Contact("dude ONE", "Duder", "bob", "0123547895456", "hihihi"));
-			Pb.AddContact(Contact("dude ONE", "Duder the dudest", "bob", "+123547895", "huhuhu"));
-			Pb.AddContact(Contact("dude ONE", "Duder", "bob", "+123547895", "hohoho"));
-			Pb.AddContact(Contact("dude ONE", "Duder", "bob", "+123547895", "hyhyhy"));
-			Pb.AddContact(Contact("dude ONE", "Duder", "bob", "+123547895", "jajaja"));
-			Pb.AddContact(Contact("dude ONE", "Duder", "bob", "+123547895", "jejeje"));
+			Pb.AddContact(Contact("dude TWO", "Duder", "bob", "0123547895", "hahaha"));
+			Pb.AddContact(Contact("dude THREE", "Duder", "bob", "0123547895456", "hihihi"));
+			Pb.AddContact(Contact("dude FOUR", "Duder the dudest", "bob", "+123547895", "huhuhu"));
+			Pb.AddContact(Contact("dude FIVE", "Duder", "bob", "+123547895", "hohoho"));
+			Pb.AddContact(Contact("dude SIX", "Duder", "bob", "+123547895", "hyhyhy"));
+			Pb.AddContact(Contact("dude SEVEN", "Duder", "bob", "+123547895", "jajaja"));
+			Pb.AddContact(Contact("dude EIGHT", "Duder", "bob", "+123547895", "jejeje"));
 		}
 	}	
 	is_active = true;
@@ -48,7 +48,8 @@ int main(int argc, char **argv)
 		}
 		else if (option == "SEARCH")
 		{
-			/* do search*/
+			Pb.DisplayAll();
+			Pb.DisplayIdx();
 		}
 		else if (option == "EXIT")
 			break ;
