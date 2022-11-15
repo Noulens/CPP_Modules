@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 15:08:46 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/15 16:15:31 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/15 19:38:07 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Account::Account( int initial_deposit )
 	_nbDeposits = 0;
 	_nbWithdrawals = 0;
 	_displayTimestamp();
-	std::cout << "index:" << _nbAccounts << ";ammount:" << initial_deposit
+	std::cout << "index:" << _nbAccounts << ";amount:" << initial_deposit
 		<< ";created" << std::endl;
 	_totalAmount += initial_deposit;
 	_nbAccounts++;
@@ -40,6 +40,7 @@ Account::~Account( void )
 
 void	Account::_displayTimestamp( void )
 {
+	//std::cout << "[19920104_091532] ";
 	struct tm*	timestruct;
 	time_t		timet;
 	char		buf[19];
@@ -73,7 +74,7 @@ int	Account::getNbWithdrawals( void )
 void	Account::displayAccountsInfos( void )
 {
 	_displayTimestamp();
-	std::cout << "accounts:" << _nbAccounts << ";total=" << _totalAmount << ";desposits:"
+	std::cout << "accounts:" << _nbAccounts << ";total:" << _totalAmount << ";deposits:"
 		<< _totalNbDeposits << ";withdrawals:" << _totalNbWithdrawals << std::endl; 
 }
 
@@ -85,7 +86,7 @@ void	Account::makeDeposit( int deposit )
 	_totalNbDeposits++;
 	_amount += deposit;
 	_totalAmount += deposit;
-	std::cout << ";deposit:" << deposit << ";amount=" << _amount << ";nb_deposits:"
+	std::cout << ";deposit:" << deposit << ";amount:" << _amount << ";nb_deposits:"
 		<< _nbDeposits << std::endl;
 }
 
@@ -115,6 +116,6 @@ int		Account::checkAmount( void ) const
 void	Account::displayStatus( void ) const
 {
 	_displayTimestamp();
-	std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";desposits:" << _nbDeposits
+	std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";deposits:" << _nbDeposits
 		<< ";withdrawals:" << _nbWithdrawals << std::endl; 
 }

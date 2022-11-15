@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 11:30:24 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/15 14:16:20 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/15 19:09:40 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <cstdlib>
 # include "Contact.hpp"
 # include "colors.h"
+# include <cstdio>
 
 class Phonebook
 {

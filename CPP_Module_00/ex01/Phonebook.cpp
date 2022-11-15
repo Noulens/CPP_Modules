@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 11:28:36 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/15 16:24:41 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/15 19:32:24 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ void	Phonebook::AddContact()
 	{
 		std::cout << "Enter first name: ";
 		std::getline(std::cin, fname);
+		if (std::cin.eof())
+			std::exit (1);
 		if (infos.set_fname(fname) == false)
 			std::cout << "Enter valid info please" << std::endl;
 		else
@@ -53,6 +55,8 @@ void	Phonebook::AddContact()
 	{
 		std::cout << "Enter last name: ";
 		std::getline(std::cin, lname);
+		if (std::cin.eof())
+			std::exit (1);
 		if (infos.set_lname(lname) == false)
 			std::cout << "Enter valid info please" << std::endl;
 		else
@@ -62,6 +66,8 @@ void	Phonebook::AddContact()
 	{
 		std::cout << "Enter nickname: ";
 		std::getline(std::cin, nname);
+		if (std::cin.eof())
+			std::exit (1);
 		if (infos.set_nname(nname) == false)
 			std::cout << "Enter valid info please" << std::endl;
 		else
@@ -71,14 +77,24 @@ void	Phonebook::AddContact()
 	{
 		std::cout << "Enter phone number: ";
 		std::getline(std::cin, phonenb);
+		if (std::cin.eof())
+			std::exit (1);
 		if (infos.set_phonenb(phonenb) == false)
 			std::cout << "Enter valid info please" << std::endl;
 		else
 			break ;
 	}
-	std::cout << "Whisper their darkest secret...: ";
-	std::getline(std::cin, drkscrt);
-	infos.set_drkscrt(drkscrt);
+	while (true)
+	{
+		std::cout << "Whisper their darkest secret...: ";
+		std::getline(std::cin, drkscrt);
+		if (std::cin.eof())
+			std::exit (1);
+		if (infos.set_drkscrt(drkscrt) == false)
+			std::cout << "keep thinking..." << std::endl;
+		else
+			break ;
+	}
 	if (_nbcontacts == 8)
 	{
 		for (size_t i = 1; i < 8; i++)
@@ -93,21 +109,20 @@ void	Phonebook::AddContact()
 
 void	Phonebook::DisplayAll()
 {
-	std::cout << DARK_BLUE << "-----------------This, is The Phonebook-----------------" << std::endl;
-	std::cout << "--------------------------------------------------------" << RESET << std::endl;
+	std::cout << DARK_BLUE << "------------This is The Phonebook------------" << std::endl;
+	std::cout << "---------------------------------------------" << RESET << std::endl;
 	if (_nbcontacts == 0)
 		std::cout << "it is empty" << std::endl;
 	else
 	{
 		for (int i = 0; i < _nbcontacts; i++)
 		{
-			std::cout << DARK_BLUE << "|" << RESET << std::setw(10) << _the_contacts[i].get_fname(true)
+			std::cout << DARK_BLUE << "|" << RESET << std::setw(10) << i + 1
+				<< DARK_BLUE << "|" << RESET << std::setw(10) << _the_contacts[i].get_fname(true)
 				<< DARK_BLUE << "|" << RESET << std::setw(10) << _the_contacts[i].get_lname(true)
 				<< DARK_BLUE << "|" << RESET << std::setw(10) << _the_contacts[i].get_nname(true)
-				<< DARK_BLUE << "|" << RESET << std::setw(10) << _the_contacts[i].get_phonenb(true)
-				<< DARK_BLUE << "|" << RESET << std::setw(10) << _the_contacts[i].get_drkscrt(true)
 				<< DARK_BLUE << "|" << RESET << std::endl;
-			std::cout << DARK_BLUE << "--------------------------------------------------------" << RESET << std::endl;
+			std::cout << DARK_BLUE << "---------------------------------------------" << RESET << std::endl;
 		}
 	}
 }
@@ -124,6 +139,8 @@ void	Phonebook::DisplayIdx()
 		{
 			std::cout << UNDERLINE_BLUE << DARK_BLUE << "enter index" << RESET << DARK_BLUE << "> " << RESET;
 			std::getline(std::cin, idx);
+			if (std::cin.eof())
+				std::exit (1);
 			id = 0;
 			if (idx.length() == 1)
 			{

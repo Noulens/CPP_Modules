@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 11:28:36 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/15 15:37:36 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/15 19:24:00 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ int main(int argc, char **argv)
 	{
 		std::cout << NEG_GREEN << "This is the phonebook >" << RESET << " ";
 		std::getline(std::cin, option);
+		if (std::cin.eof())
+			std::exit (1);
 		if (option == "ADD")
 		{
 			std::cout << "Add contact info" << std::endl;
