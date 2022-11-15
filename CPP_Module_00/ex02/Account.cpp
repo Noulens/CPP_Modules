@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 15:08:46 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/15 19:38:07 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/15 19:42:18 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ Account::~Account( void )
 void	Account::_displayTimestamp( void )
 {
 	//std::cout << "[19920104_091532] ";
-	struct tm*	timestruct;
+	struct tm	*timestruct;
 	time_t		timet;
 	char		buf[19];
 
