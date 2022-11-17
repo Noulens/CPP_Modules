@@ -6,7 +6,7 @@
 /*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 18:21:42 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/17 09:48:00 by waxxy            ###   ########.fr       */
+/*   Updated: 2022/11/17 10:04:52 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@ HumanA::HumanA()
 {
 }
 
-HumanA::HumanA(std::string name, std::string weapon)
+HumanA::HumanA(std::string name, Weapon weapon)
 {
     _name = name;
+    _weapon = weapon;
 }
 
 HumanA::~HumanA()
