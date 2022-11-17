@@ -3,11 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
+/*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 18:21:25 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/16 18:21:27 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/17 09:21:59 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef __WEAPON__H__
+# define __WEAPON__H__
 
+# include <iostream>
+# include "colors.h"
+
+class	Weapon
+{
+	private:
+		std::string	_type;
+	public:
+		Weapon();
+		Weapon(std::string type);
+		~Weapon();
+
+		void	setType(std::string type);
+        void	getType();
+};
+
+#endif
