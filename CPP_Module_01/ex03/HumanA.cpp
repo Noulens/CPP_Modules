@@ -6,7 +6,7 @@
 /*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 18:21:42 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/17 09:14:25 by waxxy            ###   ########.fr       */
+/*   Updated: 2022/11/17 09:48:00 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,5 @@ HumanA::~HumanA()
 
 void    HumanA::attack() const
 {
-    std::cout << RED <<_name << "attacks with their " << _Weapon.getType() << " !" << RESET << std::endl;
-}
-
-void    HumanA::setWeapon(std::string &type)
-{
-    if (type.length() == 0)
-        type = "bare hands";
+    std::cout << RED <<_name << "attacks with their " << _weapon.getType() << " !" << RESET << std::endl;
 }

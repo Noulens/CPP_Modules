@@ -6,7 +6,7 @@
 /*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 18:21:25 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/17 09:21:59 by waxxy            ###   ########.fr       */
+/*   Updated: 2022/11/17 09:55:44 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ class	Weapon
 		Weapon(std::string type);
 		~Weapon();
 
-		void	setType(std::string type);
-        void	getType();
+		void		setType(std::string type);
+		std::string	getType() const;
 };
 
 #endif
