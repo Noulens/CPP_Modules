@@ -6,17 +6,31 @@
 /*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 18:20:01 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/17 08:41:33 by waxxy            ###   ########.fr       */
+/*   Updated: 2022/11/18 12:48:45 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "HumanA.hpp"
 #include "HumanB.hpp"
+#include "Weapon.hpp"
 
-int	main(int argc, char **argv)
+int	main(void)
 {
-	(void)argc;
-	(void)argv;
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanA bob("Bob", club);
+		bob.attack();
+		club.setType("some other type of club");
+		bob.attack();
+	}
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanB jim("Jim");
+		jim.setWeapon(club);
+		jim.attack();
+		club.setType("some other type of club");
+		jim.attack();
+	}
 	return (0);
 }

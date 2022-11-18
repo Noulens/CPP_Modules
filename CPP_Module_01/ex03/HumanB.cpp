@@ -6,7 +6,7 @@
 /*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 18:21:45 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/17 10:05:42 by waxxy            ###   ########.fr       */
+/*   Updated: 2022/11/18 12:44:39 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,14 @@
 
 HumanB::HumanB()
 {
+	_name = "";
+	_weapon = NULL;
 }
 
-HumanB::HumanB(std::string name, std::string weapon)
+HumanB::HumanB(std::string name)
 {
 	_name = name;
-	_weapon = weapon;
+	_weapon = NULL;
 }
 
 HumanB::~HumanB()
@@ -31,10 +33,13 @@ HumanB::~HumanB()
 
 void	HumanB::attack() const
 {
-	std::cout << RED << _name << "attacks with their " << _weapon << " !" << RESET << std::endl;
+	if (_weapon == NULL)
+		std::cout << RED << _name << " attacks with their bare hands" << " !" << RESET << std::endl;
+	else
+		std::cout << RED << _name << " attacks with their " << _weapon->getType() << " !" << RESET << std::endl;
 }
 
-void	setWeapon(Weapon &weapon);
+void	HumanB::setWeapon(Weapon &weapon)
 {
-
+	_weapon = &weapon;
 }

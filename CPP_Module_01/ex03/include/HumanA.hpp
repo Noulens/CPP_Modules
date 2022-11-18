@@ -6,7 +6,7 @@
 /*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 18:21:38 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/17 10:05:15 by waxxy            ###   ########.fr       */
+/*   Updated: 2022/11/18 12:24:33 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,9 @@ class	HumanA
 {
 	private:
 		std::string	_name;
-		Weapon		_weapon;
+		Weapon		&_weapon;
 	public:
-		HumanA();
-		HumanA(std::string name, Weapon weapon);
+		HumanA(std::string name, Weapon &weapon);
 		~HumanA();
 		void	attack() const;
 };
