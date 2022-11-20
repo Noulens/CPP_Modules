@@ -28,19 +28,13 @@ int	main(int argc, char **argv)
 		{
 		case 0:
 			karen.complain("DEBUG");
-			karen.complain("INFO");
-			karen.complain("WARNING");
-			karen.complain("ERROR");
-			break;
+			// fall through
 		case 1:
 			karen.complain("INFO");
-			karen.complain("WARNING");
-			karen.complain("ERROR");
-			break;
+			// fall through
 		case 2:
 			karen.complain("WARNING");
-			karen.complain("ERROR");
-			break;
+			// fall through
 		case 3:
 			karen.complain("ERROR");
 			break ;
