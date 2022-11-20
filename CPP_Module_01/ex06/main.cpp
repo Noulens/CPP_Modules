@@ -6,7 +6,7 @@
 /*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 16:35:07 by waxxy             #+#    #+#             */
-/*   Updated: 2022/11/19 20:09:45 by waxxy            ###   ########.fr       */
+/*   Updated: 2022/11/20 10:10:19 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,11 @@
 int	main(int argc, char **argv)
 {
 	Harl		karen;
+	int			filter;
+	std::string	level = argv[1];
 
 	if (argc >= 2)
 	{
-		std::string level = argv[1];
-		int			filter;
-
 		filter = karen.filter(level);
 		switch (filter)
 		{
