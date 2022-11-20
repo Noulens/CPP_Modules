@@ -2,7 +2,7 @@
 ## Variables ##
 ###############
 
-NAME		=	harl
+NAME		=	rawbit
 
 VPATH		=	.
 ## add library here (minilibx, ncurses, libft, ...)
@@ -14,7 +14,7 @@ BUILDIR		=	build
 DEPDIR		=	$(BUILDIR)/.deps
 
 SRC			=	main.cpp\
-				Harl.cpp
+				Fixed.cpp
 
 OBJ			=	$(SRC:%.cpp=$(BUILDIR)/%.o)
 DEP			=	$(SRC:%.cpp=$(DEPDIR)/%.d)
