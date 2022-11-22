@@ -6,12 +6,13 @@
 /*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 15:46:40 by waxxy             #+#    #+#             */
-/*   Updated: 2022/11/21 21:39:52 by waxxy            ###   ########.fr       */
+/*   Updated: 2022/11/22 16:38:57 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
+// Constructors
 Fixed::Fixed()
 {
 	_fixed_value = 0;
@@ -36,16 +37,78 @@ Fixed::Fixed(const Fixed &copy)
 	std::cout << "Fixed: Copy Constructor called" << std::endl;
 }
 
+//Destructor
 Fixed::~Fixed()
 {
 	std::cout << "Fixed: Destructor called" << std::endl;
 }
 
-Fixed & Fixed::operator = (const Fixed &assigned)
+//Operators
+Fixed & Fixed::operator=(const Fixed &assigned)
 {
 	_fixed_value = assigned.getRawBits();
 	std::cout << "Fixed: Assignment operator called" << std::endl;
 	return (*this);
+}
+
+Fixed & Fixed::operator++(void)
+{
+	++_fixed_value;
+	return(*this);
+}
+
+Fixed & Fixed::operator--(void)
+{
+	--_fixed_value;
+	return (*this);
+}
+
+Fixed Fixed::operator++(int)
+{
+	Fixed	temp {*this};
+
+	++(*this);
+	return (temp);
+}
+
+Fixed Fixed::operator--(int)
+{
+	Fixed	temp {*this};
+
+	--(*this);
+	return (temp);
+}
+
+Fixed Fixed::operator+(const Fixed &operated_with)
+{
+	Fixed	temp;
+
+	temp._fixed_value = _fixed_value + operated_with._fixed_value;
+	return (temp);
+}
+
+Fixed Fixed::operator-(const Fixed &operated_with)
+{
+	Fixed temp;
+
+	temp._fixed_value = _fixed_value - operated_with._fixed_value;
+	return (temp);
+}
+
+Fixed Fixed::operator*(const Fixed &operated_with)
+{
+	Fixed temp;
+
+	temp._fixed_value = _fixed_value * operated_with._fixed_value;
+	return (temp);
+}
+
+Fixed Fixed::operator/(const Fixed &operated_with)
+{
+	Fixed temp;
+
+	temp._fixed_value = _fixed_value / operated_with._fixed_value;
+	return (temp);
 }
 
 std::ostream &operator<<(std::ostream &out, const Fixed &ok)
@@ -54,6 +117,37 @@ std::ostream &operator<<(std::ostream &out, const Fixed &ok)
 	return (out);
 }
 
+bool Fixed::operator==(const Fixed &compared_to)
+{
+	return (_fixed_value == compared_to.getRawBits());
+}
+
+bool Fixed::operator!=(const Fixed &compared_to)
+{
+	return (!(operator == (compared_to.getRawBits())));
+}
+
+bool Fixed::operator<(const Fixed &compared_to)
+{
+	return (_fixed_value < compared_to.getRawBits());
+}
+
+bool Fixed::operator>(const Fixed &compared_to)
+{
+	return (_fixed_value > compared_to.getRawBits());
+}
+
+bool Fixed::operator<=(const Fixed &compared_to)
+{
+	return (!(operator>(compared_to.getRawBits())));
+}
+
+bool Fixed::operator>=(const Fixed &compared_to)
+{
+	return (!(operator<(compared_to.getRawBits())));
+}
+
+//Member functions
 int	Fixed::getRawBits(void) const /* returns the raw value of the fixed-point value*/
 {
 	return (_fixed_value);
