@@ -6,7 +6,7 @@
 /*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 10:18:24 by waxxy             #+#    #+#             */
-/*   Updated: 2022/11/22 16:41:12 by waxxy            ###   ########.fr       */
+/*   Updated: 2022/11/22 17:52:58 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,17 @@ class Fixed
 		Fixed operator-(const Fixed &operated_with);
 		Fixed operator*(const Fixed &operated_with);
 		Fixed operator/(const Fixed &operated_with);
-		bool operator == (const Fixed &compared_to);
-		bool operator != (const Fixed &compared_to);
-		bool operator < (const Fixed &compared_to);
-		bool operator > (const Fixed &compared_to);
-		bool operator <= (const Fixed &compared_to);
-		bool operator >= (const Fixed &compared_to);
+		bool operator == (const Fixed &compared_to) const;
+		bool operator != (const Fixed &compared_to) const;
+		bool operator < (const Fixed &compared_to) const;
+		bool operator > (const Fixed &compared_to) const;
+		bool operator <= (const Fixed &compared_to) const;
+		bool operator >= (const Fixed &compared_to) const;
 		//Overloaded member functions
-
+		static Fixed	&min(Fixed &obj1, Fixed &obj2);
+		static const Fixed	&min(const Fixed &obj1, const Fixed &obj2);
+		static Fixed &max(Fixed &obj1, Fixed &obj2);
+		static const Fixed &max(const Fixed &obj1, const Fixed &obj2);
 		//Member functions
 		int		getRawBits(void) const; /* returns the raw value of the fixed-point value*/
 		void	setRawBits(int const raw); /* sets the raw value of the fixed-point value*/
