@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/19 16:35:07 by waxxy             #+#    #+#             */
-/*   Updated: 2022/11/23 18:43:46 by tnoulens         ###   ########.fr       */
+/*   Created: 2022/11/23 18:30:18 by tnoulens          #+#    #+#             */
+/*   Updated: 2022/11/23 18:37:58 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "colors.h"
+#ifndef __CLAPTRAP__HPP__
+# define __CLAPTRAP__HPP__
+
 #include <iostream>
-#include "Fixed.hpp"
-#include "Point.hpp"
+#include <string>
 
-int	main(int argc, char **argv)
+class	ClapTrap
 {
-	(void)argc;
-	(void)argv;
-	Point a(6, -4), b(6, 6), c(-6.0f, 6), p(3.5f, -2.2f);
+	private:
+		std::string	_name;
+	public:
+		ClapTrap();
+		ClapTrap(std::string name);
+		ClapTrap(const ClapTrap &copy);
+		~ClapTrap();
+		ClapTrap &operator = (const ClapTrap &assign);
+		
+		void	attack(const std::string& target);
+		void	takeDamage(unsigned int amount);
+		void	beRepaired(unsigned int amount);
+};
 
-	if (bsp(a, b, c, p) == true)
-		std::cout << GREEN << "oui" << RESET << std::endl;
-	else
-		std::cout << RED << "non" << RESET << std::endl;
-	return 0;
-}
+#endif
