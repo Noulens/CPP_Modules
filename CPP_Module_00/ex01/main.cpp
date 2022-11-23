@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 11:28:36 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/15 19:24:00 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/23 18:05:55 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int main(int argc, char **argv)
 			Pb.AddContact(Contact("dude SEVEN", "Duder", "bob", "+123547895", "jajaja"));
 			Pb.AddContact(Contact("dude EIGHT", "Duder", "bob", "+123547895", "jejeje"));
 		}
-	}	
+	}
 	is_active = true;
 	while(is_active)
 	{
