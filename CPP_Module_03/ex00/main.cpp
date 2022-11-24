@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 11:26:38 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/24 13:27:14 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/24 15:20:06 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 
 int	main(void)
 {
-	ClapTrap	Bob("Bob");
-	ClapTrap	Dude;
+	ClapTrap	Bob("Dude");
+	ClapTrap	Bob2;
 	std::string	target_practice;
 	
 	Bob.attack(target_practice);
@@ -33,22 +33,26 @@ int	main(void)
 	Bob.attack(target_practice);
 	Bob.attack(target_practice);
 	Bob.attack(target_practice);
-	Dude = Bob;
-	Dude.attack(Bob.getName());
-	Dude.takeDamage(12);
+	Bob2 = Bob;
+	Bob2.attack(Bob.getName());
+	Bob2.takeDamage(12);
 	ClapTrap Duder("Duder");
-	Duder.attack(Dude.getName());
-	Duder.attack(Dude.getName());
-	Duder.attack(Dude.getName());
-	Duder.attack(Dude.getName());
-	Duder.attack(Dude.getName());
-	Duder.attack(Dude.getName());
-	Duder.attack(Dude.getName());
-	Duder.attack(Dude.getName());
+	Duder.attack(Bob2.getName());
+	Duder.attack(Bob2.getName());
+	Duder.attack(Bob2.getName());
+	Duder.attack(Bob2.getName());
+	Duder.attack(Bob2.getName());
+	Duder.attack(Bob2.getName());
+	Duder.attack(Bob2.getName());
+	Duder.attack(Bob2.getName());
 	Duder.takeDamage(9);
-	Duder.attack(Dude.getName());
+	Duder.attack(Bob2.getName());
 	Duder.beRepaired(2);
 	Duder.takeDamage(3);
 	Duder.beRepaired(2);
+	ClapTrap Dudest(Duder);
+	Dudest.attack(Bob2.getName());
+	Dudest.beRepaired(6);
+	Duder.takeDamage(2);
 	return (0);
 }

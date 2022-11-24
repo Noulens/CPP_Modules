@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/19 16:35:07 by waxxy             #+#    #+#             */
-/*   Updated: 2022/11/24 18:39:43 by tnoulens         ###   ########.fr       */
+/*   Created: 2022/11/24 15:24:26 by tnoulens          #+#    #+#             */
+/*   Updated: 2022/11/24 17:23:15 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "colors.h"
-#include <iostream>
-#include "Fixed.hpp"
-#include "Point.hpp"
+#ifndef __SCAVTRAP__HPP__
+# define __SCAVTRAP__HPP__
 
-int	main(int argc, char **argv)
+#include "ClapTrap.hpp"
+
+class ScavTrap: public ClapTrap
 {
-	(void)argc;
-	(void)argv;
-	Point a(6, -4), b(6, 6), c(-6.0f, 6), p(6, 6);
+private:
+public:
+	ScavTrap(std::string name);
+	ScavTrap(const ScavTrap &copy_from);
+	~ScavTrap();
+	
+	void	guardGate(void);
+};
 
-	if (bsp(a, b, c, p) == true)
-		std::cout << GREEN << "oui" << RESET << std::endl;
-	else
-		std::cout << RED << "non" << RESET << std::endl;
-	return 0;
-}
+#endif
