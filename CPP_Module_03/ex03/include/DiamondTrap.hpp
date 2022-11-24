@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 19:28:31 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/24 19:41:41 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/24 20:17:39 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class	DiamondTrap: public FragTrap, public ScavTrap
 	private:
 		std::string	_name;
 	public:
-		DiamondTrap()
+		DiamondTrap();
 		void	whoAmI(void);
 };
 
