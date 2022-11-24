@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 09:54:00 by waxxy             #+#    #+#             */
-/*   Updated: 2022/11/19 16:26:55 by waxxy            ###   ########.fr       */
+/*   Updated: 2022/11/24 14:24:02 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	main(int argc, char **argv)
 		to_read.open(file.c_str());
 		if (!to_read)
 		{
-			std::cout << "No such file !" << std::endl;
+			std::cout << "Nope, check file existence or access right !" << std::endl;
 			return (2);
 		}
 		to_write.open(newfile.c_str());
@@ -58,7 +58,7 @@ int	main(int argc, char **argv)
 			{
 				buffer.insert(pos, substituant);
 				buffer.erase(pos + st, sd);
-				pos = buffer.find(substituted);
+				pos = buffer.find(substituted, pos + st);
 			}
 			to_write << buffer << std::endl;
 		}
