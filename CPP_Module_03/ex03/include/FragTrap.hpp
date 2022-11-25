@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 18:52:13 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/24 19:35:03 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/24 19:05:39 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "ClapTrap.hpp"
 #include <iostream>
 
-class	FragTrap: public virtual ClapTrap
+class	FragTrap: public ClapTrap
 {
 	private:
 	public:
@@ -25,6 +25,9 @@ class	FragTrap: public virtual ClapTrap
 		FragTrap(const FragTrap &copy_from);
 		~FragTrap();
 
+		void	attack(const std::string& target);
+		void	takeDamage(unsigned int amount);
+		void	beRepaired(unsigned int amount);
 		void	highFivesGuys(void);
 };
 
