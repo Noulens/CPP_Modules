@@ -1,8 +1,18 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tnoulens <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/25 20:37:48 by tnoulens          #+#    #+#             */
+/*   Updated: 2022/11/25 20:37:53 by tnoulens         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal(): _type(WHITE  "Wrong abstract animal"  RESET)
+WrongAnimal::WrongAnimal(): _type(WHITE "Wrong abstract animal"  RESET)
 {
     std::cout << "wrong animal default constructor called for " << getType() << std::endl;
 }
