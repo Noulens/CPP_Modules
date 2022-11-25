@@ -23,6 +23,7 @@ class	FragTrap: public ClapTrap
 	public:
 		FragTrap(std::string name);
 		FragTrap(const FragTrap &copy_from);
+		FragTrap &operator=(FragTrap const &src);
 		~FragTrap();
 
 		void	attack(const std::string& target);

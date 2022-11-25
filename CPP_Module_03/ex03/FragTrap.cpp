@@ -33,6 +33,16 @@ FragTrap::~FragTrap()
 	std::cout << DARK_WHITE << "FragTrap: Destructor called" << RESET << std::endl;
 }
 
+FragTrap &FragTrap::operator=(FragTrap const &src)
+{
+	_attackdamage = src._attackdamage;
+	_hitpoints = src._hitpoints;
+	_energypoints = src._energypoints;
+	_name = src._name;
+	std::cout << "FragTrap: Assignment Operator called" << std::endl;
+	return (*this);
+}
+
 void	FragTrap::highFivesGuys(void)
 {
 	std::cout << PURPLE << "positive high fives request on the standard output!!!" << std::endl;

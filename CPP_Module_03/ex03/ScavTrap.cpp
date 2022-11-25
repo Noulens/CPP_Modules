@@ -39,6 +39,16 @@ void	ScavTrap::guardGate(void)
 	std::cout << PURPLE << "ST " << this->_name << " is now in gate keeper mode." << RESET << std::endl;
 }
 
+ScavTrap &ScavTrap::operator=(ScavTrap const &src)
+{
+	this->_hp = src._hp;
+	this->_mp = src._mp;
+	this->_dmg = src._dmg;
+	this->_name = src._name;
+    std::cout << "ScavTrap: Assignment Operator called" << std::endl;
+	return (*this);
+}
+
 void	ScavTrap::attack(const std::string& target)
 {
 	if (this->_energypoints == 0)

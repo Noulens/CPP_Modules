@@ -14,9 +14,11 @@
 
 DiamondTrap::DiamondTrap(std::string name): ClapTrap(name)
 {
-	this->_hitpoints = 100;
-	this->_energypoints = 100;
-	this->_attackdamage = 30;
+    this->_name = name
+    ClapTrap::_name = this->_name + "_clap_name";
+    this->_hitpoints = FragTrap::_hitpoints;
+	this->_energypoints = ScavTrap::_energypoints;
+	this->_attackdamage = FragTrap::_attackdamage;
 	std::cout << DARK_WHITE << "DiamondTrap: Name Constructor called" << RESET << std::endl;
 }
 
@@ -33,23 +35,24 @@ DiamondTrap::~DiamondTrap()
 	std::cout << DARK_WHITE << "DiamondTrap: Destructor called" << RESET << std::endl;
 }
 
-void	DiamondTrap::highFivesGuys(void)
+void	DiamondTrap::whoAmI(void)
 {
-	std::cout << PURPLE << "" << std::endl;
+	std::cout << PURPLE << "I suppose i am both DiamondTrap " << this->_name << " and ClapTrap " << ClapTrap::_name << std::endl;
+}
+
+DiamondTrap &DiamondTrap::operator=(DiamondTrap const &src)
+{
+	this->_hp = src._hp;
+	this->_mp = src._mp;
+	this->_dmg = src._dmg;
+	this->_name = src._name;
+    	std::cout << "DiamondTrap: Assignment Operator called" << std::endl;
+	return (*this);
 }
 
 void	DiamondTrap::attack(const std::string& target)
 {
-	if (this->_energypoints == 0)
-	{
-		std::cout << DARK_YELLOW << "DT " << this->_name << " tries to attack but has no more energy left..." << RESET << std::endl;
-		return ;
-	}
-	std::cout << BLUE << "DT " << this->_name << " attacks " << target << " dealing " << this->_attackdamage << "!" << RESET << std::endl;
-	if (--this->_energypoints == 0)
-	{
-		std::cout << DARK_YELLOW << "DT " << this->_name << " has now no energy left..." << RESET << std::endl;
-	}
+    ScavTrap::attack(target);
 }
 
 void	DiamondTrap::takeDamage(unsigned int amount)

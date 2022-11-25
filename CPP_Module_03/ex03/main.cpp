@@ -21,6 +21,7 @@ int	main(void)
 {
 	FragTrap	Fragger1("Fragger1");
 	FragTrap	Fragger2("Fragger2");
+	DiamondTrap	Didi("didi");
 	std::string	target_practice;
 
 	Fragger1.attack(target_practice);
@@ -57,5 +58,7 @@ int	main(void)
 	Fragger1.takeDamage(-30);
 	Fragger2.attack(Fragger2.getName());
 	Fragger1.takeDamage(-30);
+	std::cout << "\n";
+	Didi.whoAmI();
 	return (0);
 }
