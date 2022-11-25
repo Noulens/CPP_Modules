@@ -19,9 +19,9 @@ int	main(void)
 	ClapTrap	Bob("Dude");
 	ClapTrap	Bob2;
 	std::string	target_practice;
-	
+
 	Bob.attack(target_practice);
-	Bob.takeDamage(5);
+	Bob.takeDamage(-5);
 	Bob.beRepaired(6);
 	Bob.beRepaired(2);
 	Bob.attack(target_practice);
@@ -35,7 +35,7 @@ int	main(void)
 	Bob.attack(target_practice);
 	Bob2 = Bob;
 	Bob2.attack(Bob.getName());
-	Bob2.takeDamage(12);
+	Bob2.takeDamage(50);
 	ClapTrap Duder("Duder");
 	Duder.attack(Bob2.getName());
 	Duder.attack(Bob2.getName());

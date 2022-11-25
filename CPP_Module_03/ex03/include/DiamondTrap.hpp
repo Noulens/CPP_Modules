@@ -30,8 +30,6 @@ class	DiamondTrap: public FragTrap, public ScavTrap
 		~DiamondTrap();
 
 		void	attack(const std::string& target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
 		void	whoAmI(void);
 };
 

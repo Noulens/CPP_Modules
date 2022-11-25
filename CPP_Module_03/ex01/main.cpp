@@ -55,22 +55,17 @@ int	main(void)
 	Duder.takeDamage(9);
 	Duder.attack(Bob2.getName());
 	Duder.beRepaired(2);
-	Duder.takeDamage(3);
+	Duder.takeDamage(-3);
 	Duder.beRepaired(2);
 	ClapTrap Dudest(Duder);
 	Dudest.attack(Bob2.getName());
 	Dudest.beRepaired(6);
-	Duder.takeDamage(2);
+	Duder.takeDamage(100);
+	Duder.beRepaired(2);
 
 	std::cout << "\n";
 
 	Scavenger1.attack(target_practice);
-	Scavenger1.attack(Scavenger2.getName());
-	Scavenger2.takeDamage(20);
-	Scavenger1.attack(Scavenger2.getName());
-	Scavenger2.takeDamage(20);
-	Scavenger1.attack(Scavenger2.getName());
-	Scavenger2.takeDamage(20);
 	Scavenger1.attack(Scavenger2.getName());
 	Scavenger2.takeDamage(20);
 	Scavenger1.attack(Scavenger2.getName());
@@ -82,20 +77,6 @@ int	main(void)
 	Scavenger2.beRepaired(60);
 	Scavenger2.attack(Scavenger2.getName());
 	Scavenger1.takeDamage(20);
-	Scavenger2.attack(Scavenger2.getName());
-	Scavenger1.takeDamage(20);
-	Scavenger2.attack(Scavenger2.getName());
-	Scavenger1.takeDamage(20);
-	Scavenger2.attack(Scavenger2.getName());
-	Scavenger1.takeDamage(20);
-	Scavenger2.attack(Scavenger2.getName());
-	Scavenger1.takeDamage(20);
-	Scavenger2.attack(Scavenger2.getName());
-	Scavenger1.takeDamage(20);
-	Scavenger2.attack(Scavenger2.getName());
-	Scavenger1.takeDamage(20);
-	Scavenger2.attack(Scavenger2.getName());
-	Scavenger1.takeDamage(-20);
 	Scavenger2.attack(Scavenger2.getName());
 	Scavenger1.takeDamage(-20);
 	Scavenger2.guardGate();

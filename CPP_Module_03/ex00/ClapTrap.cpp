@@ -49,9 +49,9 @@ ClapTrap &ClapTrap::operator = (const ClapTrap &assign)
 
 void	ClapTrap::attack(const std::string& target)
 {
-	if (this->_energypoints == 0)
+	if (this->_energypoints == 0 || this->_hitpoints == 0)
 	{
-		std::cout << DARK_YELLOW << "CT " << this->_name << " tries to attack but has no more energy left..." << RESET << std::endl;
+		std::cout << DARK_YELLOW << "CT " << this->_name << " tries to attack but cannot do anything..." << RESET << std::endl;
 		return ;
 	}
 	std::cout << BLUE << "CT " << this->_name << " attacks " << target << " dealing " << this->_attackdamage << "!" << RESET << std::endl;
@@ -63,13 +63,18 @@ void	ClapTrap::attack(const std::string& target)
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
+	if ((int)amount < 0)
+	{
+		std::cout << UNDERLINE_RED << "CT " << this->_name << " no damage taken!!" << RESET << std::endl;
+		return ;
+	}
 	if (this->_hitpoints == 0)
 	{
 		std::cout << DARK_RED << "CT " << this->_name << " is already HS!" << RESET << std::endl;
 		return ;
 	}
 	std::cout << RED << "CT " << _name << " takes " << amount << " damages!" << RESET << std::endl;
-	(_hitpoints - amount < 0) ? _hitpoints = 0 : _hitpoints -= amount;
+	(_hitpoints < (int)amount) ? _hitpoints = 0 : _hitpoints -= amount;
 	if (this->_hitpoints == 0)
 	{
 		std::cout << DARK_RED << "CT " << this->_name << " is now HS!" << RESET << std::endl;
@@ -78,9 +83,14 @@ void	ClapTrap::takeDamage(unsigned int amount)
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	if (_hitpoints == 10)
+	if ((int)amount < 0)
 	{
-		std::cout << DARK_GREEN << "CT " << this->_name << " is already at full health" << RESET << std::endl;
+		std::cout << UNDERLINE_GREEN << "CT " << this->_name << " no damage repaired!!" << RESET << std::endl;
+		return ;
+	}
+	if (this->_energypoints == 0 || this->_hitpoints == 0)
+	{
+		std::cout << DARK_YELLOW << "CT " << this->_name << " tries to repair but cannot do anything..." << RESET << std::endl;
 		return ;
 	}
 	if (this->_energypoints == 0)
@@ -88,7 +98,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 		std::cout << DARK_YELLOW << "CT " << this->_name << " tries to auto-repair but has no more energy left..." << RESET << std::endl;
 		return ;
 	}
-	(_hitpoints + amount > 10) ? _hitpoints = 10 : _hitpoints += amount;
+	_hitpoints += amount;
 	std::cout << GREEN << "CT " << _name << " repaired " << amount << " points!" << RESET << std::endl;
 	if (--this->_energypoints == 0)
 	{
