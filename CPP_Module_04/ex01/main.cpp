@@ -33,6 +33,9 @@ int	main( void )
 	dog->makeSound();
 	cat->makeSound();
 	meta->makeSound();
+	delete meta;
+	delete dog;
+	delete cat;
 
 	const WrongAnimal* wmeta = new WrongAnimal();
 	const WrongAnimal* wcat = new WrongCat();
@@ -40,4 +43,7 @@ int	main( void )
 	std::cout << wcat->getType() << std::endl;
 	wmeta->makeSound();
 	wcat->makeSound();
+	delete wmeta;
+	delete wcat;
+	return (0);
 }

@@ -2,7 +2,7 @@
 
 #include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal(): _type(DARK_WHITE  " wrong abstract animal"  RESET)
+WrongAnimal::WrongAnimal(): _type(WHITE "Wrong abstract animal"  RESET)
 {
     std::cout << "wrong animal default constructor called for " << getType() << std::endl;
 }

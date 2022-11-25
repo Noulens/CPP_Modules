@@ -56,3 +56,17 @@ void	FragTrap::highFivesGuys(void)
 {
 	std::cout << PURPLE << "positive high fives request on the standard output!!!" << std::endl;
 }
+
+void	FragTrap::attack(const std::string& target)
+{
+	if (this->_energypoints == 0 || this->_hitpoints == 0)
+	{
+		std::cout << DARK_YELLOW << "FT " << this->_name << " tries to attack but cannot do anything..." << RESET << std::endl;
+		return ;
+	}
+	std::cout << BLUE << "FT " << this->_name << " attacks " << target << " dealing " << this->_attackdamage << "!" << RESET << std::endl;
+	if (--this->_energypoints == 0)
+	{
+		std::cout << DARK_YELLOW << "FT " << this->_name << " has now no energy left..." << RESET << std::endl;
+	}
+}

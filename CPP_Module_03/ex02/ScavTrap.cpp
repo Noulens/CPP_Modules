@@ -57,3 +57,17 @@ ScavTrap &ScavTrap::operator=(ScavTrap const &src)
     std::cout << "ScavTrap: Assignment Operator called" << std::endl;
 	return (*this);
 }
+
+void	ScavTrap::attack(const std::string& target)
+{
+	if (this->_energypoints == 0 || this->_hitpoints == 0)
+	{
+		std::cout << DARK_YELLOW << "ST " << this->_name << " tries to attack but cannot do anything..." << RESET << std::endl;
+		return ;
+	}
+	std::cout << BLUE << "ST " << this->_name << " attacks " << target << " dealing " << this->_attackdamage << "!" << RESET << std::endl;
+	if (--this->_energypoints == 0)
+	{
+		std::cout << DARK_YELLOW << "ST " << this->_name << " has now no energy left..." << RESET << std::endl;
+	}
+}
