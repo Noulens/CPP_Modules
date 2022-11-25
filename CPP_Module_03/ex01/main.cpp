@@ -61,7 +61,7 @@ int	main(void)
 	Dudest.attack(Bob2.getName());
 	Dudest.beRepaired(6);
 	Duder.takeDamage(2);
-	
+
 	std::cout << "\n";
 
 	Scavenger1.attack(target_practice);
@@ -78,6 +78,7 @@ int	main(void)
 	Scavenger1.attack(Scavenger2.getName());
 	Scavenger2.takeDamage(20);
 	Scavenger2.beRepaired(50);
+	Scavenger2.beRepaired(60);
 	Scavenger2.beRepaired(60);
 	Scavenger2.attack(Scavenger2.getName());
 	Scavenger1.takeDamage(20);
