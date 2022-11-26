@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 12:50:13 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/26 17:24:22 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/26 18:02:21 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ Brain::~Brain()
 
 Brain &Brain::operator = (const Brain &src)
 {
-	;
+	(void)src;
+	return (*this);
 }
 
 Brain::Brain(const Brain &src)

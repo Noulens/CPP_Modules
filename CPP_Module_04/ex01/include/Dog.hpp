@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 20:36:13 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/26 17:55:31 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/26 18:00:35 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <iostream>
 # include "colors.h"
 # include "Animal.hpp"
+# include "Brain.hpp"
 
 class	Dog : public Animal
 {

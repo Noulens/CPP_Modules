@@ -18,7 +18,8 @@ SRC			=	main.cpp\
 				Dog.cpp\
 				Animal.cpp\
 				WrongAnimal.cpp\
-				WrongCat.cpp
+				WrongCat.cpp\
+				Brain.cpp
 
 
 OBJ			=	$(SRC:%.cpp=$(BUILDIR)/%.o)
