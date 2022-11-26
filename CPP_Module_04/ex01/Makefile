@@ -69,10 +69,9 @@ BODY_WIDTH	=	$(shell printf "$$(($(HEAD_SIZE) - 1))")
 ## Rules ##
 ###########
 
-.PHONY:			all bonus clean fclean header lib re verbose
+.PHONY:			all bonus clean fclean header lib re verbose build
 
 all:			$(NAME)
-				./$(NAME)
 
 $(BUILDIR)/%.o:	%.cpp | $(DEPDIR)
 				@printf "$(YELLOW)Compiling $@ and generating/checking make dependency file...$(DEFAULT)\n"
@@ -103,3 +102,6 @@ fclean:			clean
 
 re:				fclean
 				@$(MAKE) -s all
+
+build:			all
+				./animals

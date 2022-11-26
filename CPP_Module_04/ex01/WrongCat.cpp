@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnoulens <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 20:37:58 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/25 20:38:02 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/26 12:37:13 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 WrongCat::WrongCat(): WrongAnimal()
 {
-    this->_type = (DARK_BLUE "wrong cat" RESET);
+    this->_type = (PURPLE "wrong cat" RESET);
     std::cout << "Wrong cat default constructor called for " << WrongAnimal::getType() << std::endl;
 }
 
