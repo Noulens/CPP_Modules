@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnoulens <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 20:37:08 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/25 20:37:11 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/26 18:09:00 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,31 @@
 
 Cat::Cat(): Animal()
 {
-    this->_type = (BLUE "Cat" RESET);
-    std::cout << "cat default constructor called for " << Animal::getType() << std::endl;
+	this->_type = (BLUE "Cat" RESET);
+	this->_brain = new Brain();
+	std::cout << "cat default constructor called for " << Animal::getType() << std::endl;
 }
 
 Cat::Cat(const Cat &src)
 {
-    *this = src;
-    std::cout << "cat copy constructor called for " << Animal::getType() << std::endl;
+	*this = src;
+	std::cout << "cat copy constructor called for " << Animal::getType() << std::endl;
 }
 
-Cat &Cat::operator=(const Cat &src)
+Cat	&Cat::operator=(const Cat &src)
 {
-    this->_type = src._type;
-    std::cout << "cat copy assignment called for " << Animal::getType() << std::endl;
-    return (*this);
+	this->_type = src._type;
+	std::cout << "cat copy assignment called for " << Animal::getType() << std::endl;
+	return (*this);
 }
 
 Cat::~Cat()
 {
-    std::cout << "cat destructor called for " << Animal::getType() << std::endl;
+	delete this->_brain;
+	std::cout << "cat destructor called for " << Animal::getType() << std::endl;
 }
 
-void        Cat::makeSound(void) const
+void	Cat::makeSound(void) const
 {
-    std::cout << Animal::getType() << ": miaou" << std::endl;
+	std::cout << Animal::getType() << ": miaou" << std::endl;
 }

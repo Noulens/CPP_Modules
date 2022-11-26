@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 12:51:03 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/26 17:59:50 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/26 18:14:48 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Brain
 		Brain &operator = (const Brain &src);
 		Brain(const Brain &src);
 		
-		std::string	_ideas[100];
+		std::string	ideas[100];
 };
 
 #endif

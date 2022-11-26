@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 20:37:21 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/26 17:59:34 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/26 18:07:43 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 Dog::Dog(): Animal()
 {
     this->_type = (GREEN "Dog" RESET);
+	this->_brain = new Brain();
     std::cout << "dog default constructor called for " << Animal::getType() << std::endl;
 }
 
@@ -33,6 +34,7 @@ Dog &Dog::operator=(const Dog &src)
 
 Dog::~Dog()
 {
+    delete this->_brain;
     std::cout << "dog destructor called for " << Animal::getType() << std::endl;
 }
 
