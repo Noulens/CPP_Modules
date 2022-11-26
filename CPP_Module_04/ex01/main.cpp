@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 20:37:31 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/26 12:36:06 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/26 17:44:20 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,42 +21,34 @@
 
 int	main( void )
 {
-	std::cout << YELLOW << "------- Construction -------" << RESET << std::endl;
-	const Animal	*meta = new Animal();
-	const Animal	*dog = new Dog();
-	const Animal	*cat = new Cat();
+	std::cout << YELLOW << "======== leak test ========" << RESET << std::endl;
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
+	delete j;
+	delete i;
+	std::cout << "\n";
+	std::cout << YELLOW << "======== loop creation ========" << RESET << std::endl;
+	Animal	*animals[10];
+	for (int i = 0; i < 10; i++)
+	{
+		if (i % 2 == 0)
+			animals[i] = new Cat();
+		else
+			animals[i] = new Dog();
+	}
+	for (int i = 0; i < 10; i++)
+		delete animals[i];
+	std::cout << "\n";
+	std::cout << YELLOW << "======== Make sound ========" << RESET << std::endl;
+	
+	std::cout << "\n";
+	std::cout << YELLOW << "======== Destruction ========" << RESET << std::endl;
+	
+	std::cout << "\n";
+	std::cout << YELLOW << "======== Test stack reference ========" << RESET << std::endl;
 
-	std::cout << YELLOW << "------- Get type -------" << RESET << std::endl;
-	std::cout << meta->getType() << std::endl;
-	std::cout << dog->getType() << std::endl;
-	std::cout << cat->getType() << std::endl;
-		std::cout << YELLOW << "------- Make sound -------" << RESET << std::endl;
-	dog->makeSound();
-	cat->makeSound();
-	meta->makeSound();
-	std::cout << YELLOW << "------- Destruction -------" << RESET << std::endl;
-    delete meta;
-	delete dog;
-	delete cat;
-	std::cout << YELLOW << "------- Construction wrong -------" << RESET << std::endl;
-	const WrongAnimal* wmeta = new WrongAnimal();
-	const WrongAnimal* wcat = new WrongCat();
-	std::cout << YELLOW << "------- wrong type -------" << RESET << std::endl;
-	std::cout << wmeta->getType() << std::endl;
-	std::cout << wcat->getType() << std::endl;
-	std::cout << YELLOW << "------- wrong sound -------" << RESET << std::endl;
-	wmeta->makeSound();
-	wcat->makeSound();
-	std::cout << YELLOW << "------- destruction wrong -------" << RESET << std::endl;
-	delete wmeta;
-	delete wcat;
-	std::cout << YELLOW << "------- Test stack reference -------" << RESET << std::endl;
-	const Animal	&cat2 = Cat();
-	std::cout << cat2.getType() << std::endl;
-	cat2.makeSound();
-	std::cout << YELLOW << "------- Test stack variable animal type -------" << RESET << std::endl;
-	const Animal	cat3 = Cat();
-	std::cout << cat3.getType() << std::endl;
-	cat3.makeSound();
+	std::cout << "\n";
+	std::cout << YELLOW << "======== Test stack variable animal type ========" << RESET << std::endl;
+
 	return (0);
 }
