@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/26 12:51:03 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/27 12:58:06 by waxxy            ###   ########.fr       */
+/*   Created: 2022/11/25 20:35:03 by tnoulens          #+#    #+#             */
+/*   Updated: 2022/11/27 15:11:52 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __BRAIN__HPP__
-# define __BRAIN__HPP__
+#ifndef __ANIMAL__HPP__
+# define __ANIMAL__HPP__
 
-# include <iostream>
-# include <string>
+#include <string>
+#include <iostream>
+#include "colors.h"
+#include "Brain.hpp"
 
-class Brain
+class Animal
 {
-	private:
-	public:
-		Brain();
-		~Brain();
-		Brain &operator = (const Brain &src);
-		Brain(const Brain &src);
+	protected:
+		std::string _type;
 
-		std::string	ideas[100];
-		std::string	getIdeas(int i) const;
-		void		setIdeas(int i, std::string id);
+	public:
+		Animal();
+		Animal(const Animal &src);
+		Animal &operator=(const Animal &src);
+		virtual ~Animal();
+
+		std::string		getType(void) const;
+		virtual void	makeSound(void) const = 0;
+		virtual Brain	*getBrain(void) const = 0;
 };
 
 #endif
