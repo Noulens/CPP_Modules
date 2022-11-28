@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 20:37:31 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/27 15:14:42 by waxxy            ###   ########.fr       */
+/*   Updated: 2022/11/28 16:47:05 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ int	main( void )
 	std::cout << YELLOW << "======== Check brain ========" << RESET << std::endl;
 	for (int i = 0; i < 10; ++i)
 		std::cout << k->getBrain()->getIdeas(i) << "\n";
+	std::cout << DARK_YELLOW << "---- check non valid index ----" << RESET << std::endl;
+	std::cout << k->getBrain()->getIdeas(-6) << "\n";
 	std::cout << "\n";
 	std::cout << YELLOW << "======== Check deep copy ========" << RESET << std::endl;
 	std::cout << DARK_YELLOW << "---- Copy cat ----" << RESET << std::endl;

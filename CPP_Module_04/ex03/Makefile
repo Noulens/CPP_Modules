@@ -2,7 +2,7 @@
 ## Variables ##
 ###############
 
-NAME		=	animals
+NAME		=	materia
 
 VPATH		=	.
 ## add library here (minilibx, ncurses, libft, ...)
@@ -14,10 +14,8 @@ BUILDIR		=	build
 DEPDIR		=	$(BUILDIR)/.deps
 
 SRC			=	main.cpp\
-				Cat.cpp\
-				Dog.cpp\
-				Animal.cpp\
-				Brain.cpp
+				AMateria.cpp\
+				
 
 
 OBJ			=	$(SRC:%.cpp=$(BUILDIR)/%.o)

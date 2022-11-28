@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 12:50:13 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/27 13:48:10 by waxxy            ###   ########.fr       */
+/*   Updated: 2022/11/28 16:44:58 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 Brain::Brain()
 {
+	this->ideas[99] = "out of brain zone";
 	std::cout << RED << "Brain" << RESET << ": default constructor called\n";
 }
 
@@ -39,12 +40,12 @@ Brain::Brain(const Brain &src)
 	std::cout << RED << "Brain" << RESET << ": copy constructor called\n";
 }
 
-std::string Brain::getIdeas(int i) const
+std::string const &Brain::getIdeas(int i) const
 {
 	if (i >= 0 && i < 100)
-		return (ideas[i]);
+		return (this->ideas[i]);
 	else
-		return ("OOBZ");
+		return (this->ideas[99]);
 }
 
 void Brain::setIdeas(int i, std::string id)
@@ -52,5 +53,5 @@ void Brain::setIdeas(int i, std::string id)
 	if (i >= 0 && i < 100)
 		ideas[i] = id;
 	else
-		std::cout << "OOBZ\n";
+		std::cout << "out of brain zone\n";
 }

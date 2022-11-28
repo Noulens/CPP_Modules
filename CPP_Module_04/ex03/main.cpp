@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 20:37:31 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/27 15:14:42 by waxxy            ###   ########.fr       */
+/*   Updated: 2022/11/28 15:28:48 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	main( void )
 	std::cout << YELLOW << "======== Leak abstract test ========" << RESET << std::endl;
 	const Animal *j = new Dog();
 	const Animal *i = new Cat();
+	
 	delete j;
 	delete i;
 	std::cout << "\n";
