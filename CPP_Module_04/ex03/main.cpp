@@ -6,65 +6,45 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 20:37:31 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/28 15:28:48 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/28 17:52:25 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
-#include "Dog.hpp"
-#include "Animal.hpp"
+#include "ICharacter.hpp"
+#include "Character.hpp"
+#include "IMateriaSource.hpp"
+#include "AMateria.hpp"
 #include "colors.h"
+#include "Ice.hpp"
+#include "Cure.hpp"
+#include "MateriaSource.hpp"
 #include <iostream>
 #include <string>
 
 int	main( void )
 {
-	// std::cout << YELLOW << "======== Abstract test ========" << RESET << std::endl;
-	// const Animal test;
-	std::cout << YELLOW << "======== Leak abstract test ========" << RESET << std::endl;
-	const Animal *j = new Dog();
-	const Animal *i = new Cat();
+	IMateriaSource* src = new MateriaSource();
 	
-	delete j;
-	delete i;
-	std::cout << "\n";
-	std::cout << YELLOW << "======== Loop abstract pointers creation ========" << RESET << std::endl;
-	Animal *animals[10];
-	for (int i = 0; i < 10; i++)
-	{
-		if (i % 2 == 0)
-			animals[i] = new Cat();
-		else
-			animals[i] = new Dog();
-	}
-	std::cout << "\n";
-	std::cout << YELLOW << "======== Loop destruction ========" << RESET << std::endl;
-	for (int i = 0; i < 10; i++)
-		delete animals[i];
-	std::cout << "\n";
-	std::cout << YELLOW << "======== create cat and dogs ========" << RESET << std::endl;
-	const Cat *k = new Cat();
-	const Dog *t = new Dog();
-	std::cout << "\n";
-	std::cout << YELLOW << "======== Fill cat ideas ========" << RESET << std::endl;
-	for (int i = 0; i < 10; ++i)
-		k->getBrain()->setIdeas(i, "cat ideas");
-	std::cout << "\n";
-	std::cout << YELLOW << "======== Check brain ========" << RESET << std::endl;
-	for (int i = 0; i < 10; ++i)
-		std::cout << k->getBrain()->getIdeas(i) << "\n";
-	std::cout << "\n";
-	std::cout << YELLOW << "======== Check deep copy ========" << RESET << std::endl;
-	std::cout << DARK_YELLOW << "---- Copy cat ----" << RESET << std::endl;
-	const Cat *f = new Cat(*k);
-	std::cout << "\n";
-	std::cout << DARK_YELLOW << "---- output ideas in copy ----" << RESET << std::endl;
-	for (int i = 0; i < 10; ++i)
-		std::cout << f->getBrain()->getIdeas(i) << "\n";
-	std::cout << "\n";
-	std::cout << YELLOW << "======== Destructors ========" << RESET << std::endl;
-	delete k;
-	delete f;
-	delete t;
-	return (0);
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+	
+	ICharacter* me = new Character("me");
+	
+	AMateria* tmp;
+	
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	
+	tmp = src->createMateria("cure");
+	
+	me->equip(tmp);
+	
+	ICharacter* bob = new Character("bob");
+	me->use(0, *bob);
+	me->use(1, *bob);
+
+	delete bob;
+	delete me;
+	delete src;
+	return 0;
 }

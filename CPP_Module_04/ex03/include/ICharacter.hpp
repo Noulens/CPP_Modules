@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/28 14:25:25 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/28 17:26:29 by tnoulens         ###   ########.fr       */
+/*   Created: 2022/11/28 16:50:08 by tnoulens          #+#    #+#             */
+/*   Updated: 2022/11/28 17:41:19 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __AMATERIA__HPP__
-# define __AMATERIA__HPP__
-# include <iostream>
-# include <string>
-# include "colors.h"
-# include "ICharacter.hpp"
+#ifndef __ICHARACTER__HPP__
+# define __ICHARACTER__HPP__
 
-class AMateria
+# include <string>
+# include <iostream>
+# include "colors.h"
+# include "AMateria.hpp"
+
+class ICharacter
 {
-	protected:
-		std::string	_type;
 	public:
-		AMateria();
-		AMateria(std::string const &type);
-		AMateria(const AMateria &copy);
-		virtual ~AMateria();
-		AMateria &operator = (const AMateria &copy);
-		
-		std::string			const &getType() const;
-		virtual AMateria	*clone(void) const = 0;
-		virtual void		use(ICharacter &target);
+		virtual ~ICharacter() {}
+		virtual std::string const & getName() const = 0;
+		virtual void equip(AMateria* m) = 0;
+		virtual void unequip(int idx) = 0;
+		virtual void use(int idx, ICharacter& target) = 0;
 };
 
 #endif
