@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 17:43:10 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/28 17:48:08 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/28 23:06:16 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,21 @@
 # define __MATERIASOURCE__HPP__
 
 # include "IMateriaSource.hpp"
+# include "AMateria.hpp"
 
 class MateriaSource: public IMateriaSource
 {
-private:
-	/* data */
-public:
-	MateriaSource();
-	~MateriaSource();
-	void		learnMateria(AMateria*);
-	AMateria	*createMateria(std::string const & type);
+	private:
+		int			_learned;
+		AMateria*	_template[4];
+	public:
+		MateriaSource();
+		~MateriaSource();
+		MateriaSource(const AMateria &copy);
+		MateriaSource	&operator = (const MateriaSource &assign);
+
+		void		learnMateria(AMateria *m);
+		AMateria	*createMateria(std::string const & type);
 };
 
 #endif

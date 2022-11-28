@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 17:07:40 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/28 17:40:00 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/28 23:03:16 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class	Cure: public AMateria
 		Cure(const Cure &copy);
 		Cure &operator = (const Cure &copy);
 
-		AMateria	*clone(const Cure &clonesrc);
+		AMateria	*clone(void) const;
 		void		use(ICharacter &target);	
 };
 

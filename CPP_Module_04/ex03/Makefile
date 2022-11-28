@@ -15,7 +15,8 @@ DEPDIR		=	$(BUILDIR)/.deps
 
 SRC			=	main.cpp\
 				AMateria.cpp\
-				ICharacter.cpp\
+				Character.cpp\
+				MateriaSource.cpp\
 				Ice.cpp\
 				Cure.cpp
 				

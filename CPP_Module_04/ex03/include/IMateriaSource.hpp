@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 17:45:07 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/28 17:49:04 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/28 22:02:21 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,10 @@
 
 class IMateriaSource
 {
-public:
-	virtual ~IMateriaSource() {}
-	virtual void		learnMateria(AMateria*) = 0;
-	virtual AMateria	*createMateria(std::string const & type) = 0;
+	public:
+		virtual ~IMateriaSource() {}
+		virtual void		learnMateria(AMateria*) = 0;
+		virtual AMateria	*createMateria(std::string const & type) = 0;
 };
 
 #endif
-
