@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
+/*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 17:09:47 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/28 23:18:40 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/29 10:40:55 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 #include <iostream>
 #include <string>
 
-Ice::Ice(): AMateria("Ice")
+Ice::Ice(): AMateria("ice")
 {
 	std::cout << "Ice : standard conctructor called\n";
 }
@@ -31,17 +31,17 @@ Ice::~Ice()
 	std::cout << "Ice : destructor called\n";
 }
 
-Ice::Ice(const Ice &copy)
+Ice::Ice(const Ice &copy): AMateria("ice")
 {
 	std::cout << "Ice : copy constructor called\n";
 	*this = copy;
-	return(*this);
 }
 
 Ice &Ice::operator = (const Ice &copy)
 {
 	std::cout << "Ice : assignment called\n";
 	this->_type = copy.getType();
+	return (*this);
 }
 
 AMateria	*Ice::clone(void) const

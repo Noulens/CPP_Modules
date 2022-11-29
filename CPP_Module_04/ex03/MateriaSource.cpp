@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
+/*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 17:47:24 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/28 23:18:48 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/29 10:37:13 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,10 @@ MateriaSource::MateriaSource(const MateriaSource &copy)
 	{
 		if (copy._template[i] != NULL)
 		{
-			this->_template[i] = assign._template[i]->clone();
+			this->_template[i] = copy._template[i]->clone();
 			this->_learned++;
 		}
 	}
-	retrurn (*this);
 }
 
 MateriaSource	&MateriaSource::operator = (const MateriaSource &assign)
@@ -71,7 +70,7 @@ MateriaSource	&MateriaSource::operator = (const MateriaSource &assign)
 			this->_template[i] = assign._template[i]->clone();
 	}
 	this->_learned = assign._learned;
-	return (*this);	
+	return (*this);
 }
 
 void	MateriaSource::learnMateria(AMateria *m)

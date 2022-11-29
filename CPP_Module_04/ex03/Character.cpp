@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
+/*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 17:40:13 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/28 23:18:30 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/29 10:44:40 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,23 @@
 #include <iostream>
 #include <string>
 
-Character::Character(): _equipped(0), _name("Default")
+Character::Character() : _name("Default"), _equipped(0)
 {
-	std::cout << " Character : default constructor called\n";
+	std::cout << "Character : default constructor called\n";
 	for (int i = 0; i < 4; i++)
 		this->_inventory[i] = NULL;
 }
 
-Character::Character(const std::string &name): _equipped(0), _name(name)
+Character::Character(const std::string &name) : _name(name), _equipped(0)
 {
-	std::cout << " Character : parameterized constructor called\n";	
+	std::cout << "Character : parameterized constructor called\n";
 	for (int i = 0; i < 4; i++)
 	this->_inventory[i] = NULL;
 }
 
 Character::~Character()
 {
-	std::cout << " Character : destructor called\n";
+	std::cout << "Character : destructor called\n";
 	for (int i = 0; i < this->_equipped; ++i)
 	{
 		if (this->_inventory[i] != NULL)
@@ -49,7 +49,7 @@ Character	&Character::operator =  (const Character &assign)
 {
 	int	biggest;
 
-	std::cout << " Character : assignment called\n";
+	std::cout << "Character : assignment called\n";
 	this->_name = assign.getName();
 	biggest = (assign._equipped >= this->_equipped) ? assign._equipped : this->_equipped;
 	for (int i = 0; i < biggest; ++i)
@@ -63,24 +63,23 @@ Character	&Character::operator =  (const Character &assign)
 			this->_inventory[i] = assign._inventory[i]->clone();
 	}
 	this->_equipped = assign._equipped;
-	return (*this);		
+	return (*this);
 }
 
-Character	Character::Character(const Character &copy)
+Character::Character(const Character &copy)
 {
-	std::cout << " Character : copy constructor called\n";
-	this->_name = assign.getName();
+	std::cout << "Character : copy constructor called\n";
+	this->_name = copy.getName();
 	for (int i = 0; i < 4; i++)
 		this->_inventory[i] = NULL;
 	for (int i = 0; i < copy._equipped; ++i)
 	{
 		if (copy._inventory[i] != NULL)
 		{
-			this->_inventory[i] = assign._inventory[i]->clone();
+			this->_inventory[i] = copy._inventory[i]->clone();
 			this->_equipped++;
 		}
 	}
-	retrurn (*this);
 }
 
 std::string const &Character::getName() const

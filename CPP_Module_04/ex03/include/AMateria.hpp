@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
+/*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 14:25:25 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/28 23:03:03 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/29 10:29:58 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@
 # include "colors.h"
 # include "ICharacter.hpp"
 
-class AMateria
+class ICharacter;
+
+	class AMateria
 {
 	protected:
 		std::string	_type;
@@ -27,7 +29,7 @@ class AMateria
 		AMateria(const AMateria &copy);
 		virtual ~AMateria();
 		AMateria &operator = (const AMateria &copy);
-		
+
 		std::string			const &getType() const;
 		virtual AMateria	*clone(void) const = 0;
 		virtual void		use(ICharacter &target);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
+/*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:50:08 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/28 17:41:19 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/29 10:30:15 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <iostream>
 # include "colors.h"
 # include "AMateria.hpp"
+
+class AMateria;
 
 class ICharacter
 {

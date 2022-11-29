@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
+/*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 14:24:56 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/28 23:18:20 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/29 10:32:19 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,13 @@ AMateria::AMateria(const AMateria &copy)
 {
 	std::cout << "AMateria : copy constructor called\n";
 	*this = copy;
-	return(*this);
 }
 
 AMateria &AMateria::operator = (const AMateria &assign)
 {
 	std::cout << "AMateria : assignment operator called\n";
 	this->_type = assign.getType();
+	return (*this);
 }
 
 void	AMateria::use(ICharacter &target)
@@ -57,7 +57,7 @@ void	AMateria::use(ICharacter &target)
 	return ;
 }
 
-std::string	const &MAteria::getType() const
+std::string	const &AMateria::getType() const
 {
 	return (this->_type);
 }

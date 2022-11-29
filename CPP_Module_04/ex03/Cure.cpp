@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
+/*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 17:09:23 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/28 23:18:36 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/29 10:40:37 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,17 @@ Cure::~Cure()
 	std::cout << "Cure : destructor called\n";
 }
 
-Cure::Cure(const Cure &copy)
+Cure::Cure(const Cure &copy): AMateria("cure")
 {
 	std::cout << "Cure : copy constructor called\n";
 	*this = copy;
-	return(*this);
 }
 
 Cure &Cure::operator = (const Cure &copy)
 {
 	std::cout << "Cure : assignment called\n";
 	this->_type = copy.getType();
+	return (*this);
 }
 
 AMateria	*Cure::clone(void) const
