@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnoulens <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 20:35:03 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/25 20:35:10 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/29 13:50:47 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <string>
 #include <iostream>
 #include "colors.h"
+#include "Brain.hpp"
 
 class   Animal
 {
@@ -29,6 +30,7 @@ class   Animal
 
         std::string         getType(void) const;
         virtual void        makeSound(void) const;
+        virtual Brain*      getBrain(void) const = 0;
 };
 
 #endif

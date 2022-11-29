@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 20:37:08 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/27 13:53:36 by waxxy            ###   ########.fr       */
+/*   Updated: 2022/11/29 14:40:23 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,22 @@ Cat::Cat(): Animal()
 
 Cat::Cat(const Cat &src): Animal()
 {
-	*this = src;
+	this->_type = src.getType();
 	this->_brain = new Brain(*(src.getBrain()));
 	std::cout << "cat copy constructor called for " << Animal::getType() << std::endl;
 }
 
 Cat	&Cat::operator=(const Cat &src)
 {
-	this->_type = src._type;
+	this->_type = src.getType();
 	std::cout << "cat copy assignment called for " << Animal::getType() << std::endl;
 	return (*this);
 }
 
 Cat::~Cat()
 {
-	delete this->_brain;
+		delete this->_brain;
+		this->_brain = NULL;
 	std::cout << "cat destructor called for " << Animal::getType() << std::endl;
 }
 

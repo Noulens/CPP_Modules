@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 17:40:13 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/29 10:47:22 by waxxy            ###   ########.fr       */
+/*   Updated: 2022/11/29 15:20:04 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ void	Character::equip(AMateria* m)
 
 void	Character::unequip(int idx)
 {
-	if (idx < 0 || idx > this->_equipped - 1)
+	if (idx >= 0 && idx <= this->_equipped - 1 && this->_inventory[idx] != NULL)
 	{
 		this->_inventory[idx] = NULL;
 		--this->_equipped;
@@ -120,7 +120,7 @@ void	Character::use(int idx, ICharacter& target)
 		if (this->_inventory[idx] != NULL)
 			this->_inventory[idx]->use(target);
 		else
-			std::cout << "no Materia in emplacement\n";
+			std::cout << "not a Materia in emplacement\n";
 	}
 	else
 	{
