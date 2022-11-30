@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 13:26:06 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/30 17:17:35 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/30 17:57:34 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,9 @@ int	main(void)
 	{
 		std::cout << g.what() << "\n";
 	}
+	std::cout << a38 << '\n';
 	std::cout << DARK_YELLOW << "------ Task JMB ------" << RESET << std::endl;
+	std::cout << DARK_BLUE << "--- Fail ---" << RESET << std::endl;
 	try
 	{
 		t.beSigned(a);
@@ -52,6 +54,7 @@ int	main(void)
 	{
 		std::cout << g.what() << "\n";
 	}
+	std::cout << DARK_BLUE << "--- Success ---" << RESET << std::endl;
 	try
 	{
 		i.beSigned(a);
@@ -60,5 +63,7 @@ int	main(void)
 	{
 		std::cout << g.what() << "\n";
 	}
+	std::cout << i << '\n';
+	std::cout << DARK_YELLOW << "------ It's 4pm, Offices are closed ------" << RESET << std::endl;
 	return (0);
 }

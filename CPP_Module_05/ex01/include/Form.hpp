@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 15:35:00 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/30 17:03:15 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/30 17:38:47 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,20 +45,14 @@ class	Form
 		class GradeTooHighException: public std::exception
 		{
 			public:
-				virtual const char *what() const throw()
-				{
-					return ("Form: The grade is too high");
-				}
+				virtual const char *what() const throw();
 		};
 
 		/* grade too low exeception */
 		class GradeTooLowException: public std::exception
 		{
 			public:
-				virtual const char *what() const throw ()
-				{
-					return ("Form: The grade is too low");
-				}
+				virtual const char *what() const throw ();
 		};
 };
 

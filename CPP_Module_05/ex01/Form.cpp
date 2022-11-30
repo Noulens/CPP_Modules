@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 15:36:45 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/30 17:16:00 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/30 18:00:45 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,21 @@ void				Form::beSigned(const Bureaucrat &ok)
 std::ostream	&operator << (std::ostream &out, const Form &ok)
 {
 	out << "Form name: " << ok.getName() << '\n';
-	out << "Form signature: " << ok.getIsSigned() << '\n';
 	out << "Form clearance for signature: " << ok.getSignedClearance() << '\n';
 	out << "Form clearance for execution: " << ok.getExecuteClearance() << '\n';
+	if (ok.getIsSigned())
+		out << "Form is signed" << '\n';
+	else
+		out << "Form is not signed" << '\n';
 	return out;
+}
+
+const char *Form::GradeTooHighException::what() const throw()
+{
+	return ("Form: The grade is too high");
+}
+
+const char *Form::GradeTooLowException::what() const throw ()
+{
+	return ("Form: The grade is too low");
 }
