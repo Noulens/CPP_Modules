@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 16:59:25 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/30 16:15:57 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/30 16:22:26 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,15 @@
 # include "colors.h"
 # include <iostream>
 # include <string>
+# include "Form.hpp"
 
-class Bureaucrat
+class	Form;
+
+class	Bureaucrat
 {
 	private:
 		const std::string	_name;
-		int					_grade;
+		int			_grade;
 	public:
 		Bureaucrat();
 		Bureaucrat(int grade, std::string name);
@@ -33,7 +36,8 @@ class Bureaucrat
 		int			getGrade() const;
 		void		promote();
 		void		demote();
-		
+		void		signForm(Form &ok) const;
+
 		/* grade too high exception */
 		class GradeTooHighException: public std::exception
 		{
