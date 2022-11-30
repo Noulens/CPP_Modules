@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 19:11:55 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/30 20:33:15 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/30 21:24:42 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,8 @@ const std::string	ShrebberyCreationForm::getTarget() const
 	return (this->_target);
 }
 
-void	ShrebberyCreationForm::execute(const Bureaucrat &executor) const
+void	ShrebberyCreationForm::form_exec(const Bureaucrat &executor) const
 {
-	if (executor.getGrade() > this->getExecuteClearance())
-		throw (Form::GradeTooLowException());
 	std::string		newfile = this->getTarget() + "_shrubbery";
 	std::ofstream	to_write;
 	to_write.open(newfile.c_str());
@@ -65,6 +63,7 @@ void	ShrebberyCreationForm::execute(const Bureaucrat &executor) const
 	{
 		std::cerr << e.what() << '\n';
 	}
+	Form::execute(executor);
 	draw_trees(to_write);
 	to_write.close();
 }

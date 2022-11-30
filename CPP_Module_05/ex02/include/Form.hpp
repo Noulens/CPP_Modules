@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 15:35:00 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/30 20:08:18 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/30 21:38:31 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ class	Form
 		int					getExecuteClearance() const;
 		void				beSigned(const Bureaucrat &ok);
 
-		virtual void	execute(Bureaucrat const & executor) const = 0;
+		virtual void		execute(Bureaucrat const & executor) const;
+		virtual void		form_exec(const Bureaucrat &executor) const = 0;
 		
 		/* grade too high exception */
 		class GradeTooHighException: public std::exception
@@ -51,6 +52,12 @@ class	Form
 
 		/* grade too low exeception */
 		class GradeTooLowException: public std::exception
+		{
+			public:
+				virtual const char *what() const throw ();
+		};
+			/* not sign exeception */
+		class FormNotSign: public std::exception
 		{
 			public:
 				virtual const char *what() const throw ();

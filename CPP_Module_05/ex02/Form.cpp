@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 15:36:45 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/30 18:00:45 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/30 21:08:04 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,14 @@ std::ostream	&operator << (std::ostream &out, const Form &ok)
 	return out;
 }
 
+void	Form::execute(Bureaucrat const & executor) const
+{
+	if (this->getExecuteClearance() < executor.getGrade())
+		throw Form::GradeTooLowException();
+	if (this->getIsSigned() == false)
+		throw Form::FormNotSign();
+}
+
 const char *Form::GradeTooHighException::what() const throw()
 {
 	return ("Form: The grade is too high");
@@ -96,4 +104,9 @@ const char *Form::GradeTooHighException::what() const throw()
 const char *Form::GradeTooLowException::what() const throw ()
 {
 	return ("Form: The grade is too low");
+}
+
+const char *Form::FormNotSign::what() const throw ()
+{
+	return ("Form: it is not signed");
 }

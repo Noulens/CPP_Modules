@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 13:26:06 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/30 20:38:08 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/30 21:27:44 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 int	main(void)
 {
+	// Form test1 = Form();
 	std::cout << DARK_YELLOW << "------ Create JMB ------" << RESET << std::endl;
 	Bureaucrat a(137, BLUE "Jean-Michel Jambon" RESET);
 	std::cout << a << "\n";
@@ -27,7 +28,7 @@ int	main(void)
 	std::cout << b << "\n";
 	std::cout << DARK_YELLOW << "------ Execute ------" << RESET << std::endl;
 	ShrebberyCreationForm test = ShrebberyCreationForm("tester");
-	std::cout << DARK_BLUE << "--- Fail ---" << RESET << std::endl;
+	std::cout << DARK_BLUE << "--- Fail grade ---" << RESET << std::endl;
 	try
 	{
 		test.execute(b);
@@ -36,12 +37,38 @@ int	main(void)
 	{
 		std::cout << g.what() << "\n";
 	}
-	std::cout << DARK_BLUE << "--- Success ---" << RESET << std::endl;
+	std::cout << DARK_BLUE << "--- Fail not sign ---" << RESET << std::endl;
 	try
 	{
 		test.execute(a);
 	}
+	catch(const Form::FormNotSign &g)
+	{
+		std::cout << g.what() << "\n";
+	}
+	std::cout << DARK_YELLOW << "------ Sign ------" << RESET << std::endl;
+	try
+	{
+		test.beSigned(b);
+	}
 	catch(const Form::GradeTooLowException &g)
+	{
+		std::cout << g.what() << "\n";
+	}
+	try
+	{
+		test.beSigned(a);
+	}
+	catch(const Form::GradeTooLowException &g)
+	{
+		std::cout << g.what() << "\n";
+	}
+	std::cout << DARK_YELLOW << "------ Execute again ------" << RESET << std::endl;
+	try
+	{
+		test.execute(a);
+	}
+	catch(const Form::FormNotSign &g)
 	{
 		std::cout << g.what() << "\n";
 	}
