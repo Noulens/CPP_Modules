@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 19:11:55 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/30 19:47:13 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/30 20:33:15 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,56 @@
 
 static void	draw_trees(std::ofstream &to_write);
 
-void	ShrebberyCreationForm::execute(const std::string &target)
+ShrebberyCreationForm::ShrebberyCreationForm(): Form("ShrebberyCreationForm", 145, 137), _target("test")
 {
-	std::string		newfile = target + "_shrubbery";
-	std::ofstream	to_write;
+	std::cout << "SC std constructed \n";
+}
 
+ShrebberyCreationForm::ShrebberyCreationForm(const std::string &target): Form("ShrebberyCreationForm", 145, 137), _target(target)
+{
+	std::cout << "SC param constructed \n";
+}
+
+ShrebberyCreationForm::~ShrebberyCreationForm()
+{
+	std::cout << "SC destructed \n";
+}
+
+ShrebberyCreationForm::ShrebberyCreationForm(const ShrebberyCreationForm &copy): Form(copy.getName(), copy.getSignedClearance(), copy.getExecuteClearance()), _target(copy.getTarget())
+{
+	std::cout << "SC copy constructor \n";
+}
+
+ShrebberyCreationForm &ShrebberyCreationForm::operator = (const ShrebberyCreationForm &assign)
+{
+	(void)assign;
+	std::cout << "SC assign \n";
+	return (*this);
+}
+
+const std::string	ShrebberyCreationForm::getTarget() const
+{
+	return (this->_target);
+}
+
+void	ShrebberyCreationForm::execute(const Bureaucrat &executor) const
+{
+	if (executor.getGrade() > this->getExecuteClearance())
+		throw (Form::GradeTooLowException());
+	std::string		newfile = this->getTarget() + "_shrubbery";
+	std::ofstream	to_write;
 	to_write.open(newfile.c_str());
-	if (!to_write)
+	try
 	{
-		std::cout << "not created !" << std::endl;
+		if (!to_write)
+		{
+			std::cout << "not created !" << std::endl;
+			throw std::exception();
+		}
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what() << '\n';
 	}
 	draw_trees(to_write);
 	to_write.close();

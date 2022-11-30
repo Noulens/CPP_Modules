@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 15:35:00 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/30 17:38:47 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/11/30 20:08:18 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class	Form
 		const int			_execute_clearance;
 	public:
 		Form();
-		~Form();
+		virtual ~Form();
 		Form(const std::string name, const int sign, const int exec);
 		Form(const Form &copy);
 		Form	&operator = (const Form &assign);
@@ -39,7 +39,8 @@ class	Form
 		int					getSignedClearance() const;
 		int					getExecuteClearance() const;
 		void				beSigned(const Bureaucrat &ok);
-		
+
+		virtual void	execute(Bureaucrat const & executor) const = 0;
 		
 		/* grade too high exception */
 		class GradeTooHighException: public std::exception
