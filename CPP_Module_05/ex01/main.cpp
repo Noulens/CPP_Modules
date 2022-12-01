@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 13:26:06 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/30 17:57:34 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/12/01 20:12:01 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,28 @@ int	main(void)
 	std::cout << DARK_YELLOW << "------ Create Dédé ------" << RESET << std::endl;
 	Bureaucrat b(150, YELLOW "Dédé" RESET);
 	std::cout << b << "\n";
+	Form *tl;
+	Form *th;
+	std::cout << DARK_YELLOW << "------ Create invalid Form -12 20 ------" << RESET << std::endl;
+	try
+	{
+		tl = new Form("Impot -12 20", -12, 20);
+		std::cout << tl << "\n";
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << "\n";
+	}
+	std::cout << DARK_YELLOW << "------ Create invalid Form 12 200 ------" << RESET << std::endl;
+	try
+	{
+		th = new Form("Impot 12 200", 12, 200);
+		std::cout << th << "\n";
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << "\n";
+	}
 	std::cout << DARK_YELLOW << "------ Create Form std a38 ------" << RESET << std::endl;
 	Form a38 = Form();
 	std::cout << a38 << "\n";

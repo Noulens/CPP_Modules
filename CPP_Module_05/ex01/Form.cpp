@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 15:36:45 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/30 18:00:45 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/12/01 19:56:34 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,14 @@ Form::Form(): _name(BOLD_WHITE "laissez-passer A38" RESET), _sign_clearance(150)
 
 Form::Form(const std::string name, const int sign, const int exec): _name(name), _sign_clearance(sign), _execute_clearance(exec)
 {
+	if (_execute_clearance < 1 || _sign_clearance < 1)
+	{
+		throw Form::GradeTooHighException();
+	}
+	if (_execute_clearance > 150 || _sign_clearance > 150)
+	{
+		throw Form::GradeTooLowException();
+	}
 	this->_is_signed = false;
 	std::cout << "Form parameterized constructed \n";
 }

@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 13:26:06 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/12/01 17:00:24 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/12/01 20:10:14 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,17 @@ int	main(void)
 	Form *PPF;
 	Form *RRF;
 	Form *NSF;
-	SCF = me.makeForm("ShrebberyCreationForm", "target1");
-	PPF = me.makeForm("PresidentialPardonForm", "target2");
-	RRF = me.makeForm("RobotomyRequestForm", "target3");
-	NSF = me.makeForm("yo", "yop");
+	try
+	{
+		SCF = me.makeForm("ShrebberyCreationForm", "target1");
+		PPF = me.makeForm("PresidentialPardonForm", "target2");
+		RRF = me.makeForm("RobotomyRequestForm", "target3");
+		NSF = me.makeForm("yo", "yop");
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << '\n';
+	}
 	std::cout << DARK_BLUE << "--- Fail grade ---" << RESET << std::endl;
 	// test.form_exec(b);
 	b.executeForm(*SCF);
