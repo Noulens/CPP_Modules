@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 15:35:00 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/30 21:38:31 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/12/01 13:15:10 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ class	Form
 		int					getExecuteClearance() const;
 		void				beSigned(const Bureaucrat &ok);
 
-		virtual void		execute(Bureaucrat const & executor) const;
 		virtual void		form_exec(const Bureaucrat &executor) const = 0;
+		virtual void		execute(Bureaucrat const & executor) const;
 		
 		/* grade too high exception */
 		class GradeTooHighException: public std::exception

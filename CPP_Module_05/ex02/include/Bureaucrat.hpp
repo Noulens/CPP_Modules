@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 16:59:25 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/30 17:34:25 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/12/01 15:14:37 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ class	Bureaucrat
 		void		promote();
 		void		demote();
 		void		signForm(Form &ok) const;
+		void		executeForm(Form const &form);
 
 		/* grade too high exception */
 		class GradeTooHighException: public std::exception

@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 15:36:45 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/11/30 21:08:04 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/12/01 14:55:31 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,18 +62,23 @@ int			Form::getExecuteClearance() const
 	return (this->_execute_clearance);
 }
 
-void				Form::beSigned(const Bureaucrat &ok)
+void	Form::beSigned(const Bureaucrat &ok)
 {
-	if (ok.getGrade() > this->getSignedClearance())
+	try
 	{
-		ok.signForm(*this);
-		throw Form::GradeTooLowException();
+		if (ok.getGrade() > this->getSignedClearance())
+		{
+			ok.signForm(*this);
+			throw Form::GradeTooLowException();
+		}
 	}
-	else
+	catch(const Form::GradeTooLowException &g)
 	{
-		this->_is_signed = true;
-		ok.signForm(*this);
+		std::cout << g.what() << "\n";
+		return ;
 	}
+	this->_is_signed = true;
+	ok.signForm(*this);
 }
 
 std::ostream	&operator << (std::ostream &out, const Form &ok)
