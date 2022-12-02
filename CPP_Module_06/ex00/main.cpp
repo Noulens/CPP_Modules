@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 17:37:46 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/12/02 19:43:54 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/12/02 21:15:30 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,22 @@
 #include <string>
 #include <limits>
 #include <sstream>
+#include <iomanip>
 #include "Caster.hpp"
 
 int	main(int argc, char **argv)
 {
 	int n;
+	float g;
+	float p = 45.123f;
 	if (argc != 2)
 		return (1);
-	std::istringstream	is(argv[1]);
+	std::istringstream	is(argv[1]), ig(argv[1]);
 		is >> n;
-		
+		ig >> g;
+	
+	std::cout << std::setprecision(5);
+	std::cout << n << " " << g << " " << p << '\n';	
 	std::cout
 		<< "type\t│ min()\t\t│ max()\n"
 		<< "bool\t│ "
