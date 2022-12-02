@@ -13,7 +13,8 @@ INCLDIR		=	$(addsuffix /include,$(LIBDIR) .)
 BUILDIR		=	build
 DEPDIR		=	$(BUILDIR)/.deps
 
-SRC			=	main.cpp
+SRC			=	main.cpp\
+				Caster.cpp
 
 
 OBJ			=	$(SRC:%.cpp=$(BUILDIR)/%.o)

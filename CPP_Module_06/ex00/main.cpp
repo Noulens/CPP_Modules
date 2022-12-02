@@ -6,19 +6,24 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 17:37:46 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/12/02 18:59:13 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/12/02 19:43:54 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
 #include <limits>
+#include <sstream>
+#include "Caster.hpp"
 
 int	main(int argc, char **argv)
 {
+	int n;
 	if (argc != 2)
 		return (1);
-	(void)argv;
+	std::istringstream	is(argv[1]);
+		is >> n;
+		
 	std::cout
 		<< "type\t│ min()\t\t│ max()\n"
 		<< "bool\t│ "
