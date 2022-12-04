@@ -6,7 +6,7 @@
 /*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 19:53:10 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/12/04 23:33:44 by waxxy            ###   ########.fr       */
+/*   Updated: 2022/12/04 23:39:16 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,10 +175,7 @@ t_type Caster::checkFormat(std::string &str)
 				return (NANUM);
 		}
 		if (!comma && !f)
-		{
-			str.length() > 11 ? _hasof = true : _hasof = false;
 			return (INT);
-		}
 		else if (comma)
 		{
 			if (f == true)
