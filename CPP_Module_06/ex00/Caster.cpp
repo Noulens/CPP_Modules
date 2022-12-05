@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Caster.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 19:53:10 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/12/04 23:39:16 by waxxy            ###   ########.fr       */
+/*   Updated: 2022/12/05 12:31:58 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,12 +135,8 @@ t_type Caster::checkFormat(std::string &str)
 	bool	comma = false;
 	bool	f = false;
 
-	if (len == 1)
+	if (len == 1 && str[0] != '0')
 	{
-		if (!std::isdigit(str[0]))
-		{
-			return (NANUM);
-		}
 		return (DONE);
 	}
 	else if (str == "nan")
@@ -249,7 +245,7 @@ void	Caster::doConversion(std::string &str, t_type &t)
 		case NANUM:
 			throw Caster::Problem();
 		case DONE:
-			this->_aschar = str[0] - 48;
+			this->_aschar = str[0];
 			this->_asfloat = static_cast<float>(this->_aschar);
 			this->_asdouble = static_cast<double>(this->_aschar);
 			this->_asint = static_cast<int>(this->_aschar);
