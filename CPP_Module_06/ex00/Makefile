@@ -2,7 +2,7 @@
 ## Variables ##
 ###############
 
-NAME		=	0600
+NAME		=	converter
 
 VPATH		=	.
 ## add library here (minilibx, ncurses, libft, ...)

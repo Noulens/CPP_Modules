@@ -6,7 +6,7 @@
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 19:53:10 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/12/05 12:31:58 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:39:57 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -214,14 +214,14 @@ void	Caster::doConversion(std::string &str, t_type &t)
 			}
 			break;
 		case DOUBLE:
-			_asfloat = std::atof(str.c_str());
-			_asdouble = static_cast<double>(_asfloat);
-			if (_asfloat > 2147483647.0 || _asfloat < -2147483648.0)
+			_asdouble = std::atof(str.c_str());
+			_asfloat = static_cast<float>(_asdouble);
+			if (_asdouble > 2147483647.0 || _asdouble < -2147483648.0)
 				_hasof = true;
 			else
 			{
-				_asint = static_cast<int>(_asfloat);
-				_aschar = static_cast<char>(_asfloat);
+				_asint = static_cast<int>(_asdouble);
+				_aschar = static_cast<char>(_asdouble);
 			}
 			break ;
 		case NAN:
