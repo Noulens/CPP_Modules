@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Caster.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
+/*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 19:53:10 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/12/05 17:39:57 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/12/06 11:37:45 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,7 +141,7 @@ t_type Caster::checkFormat(std::string &str)
 	}
 	else if (str == "nan")
 		return (NAN);
-	else if (str == "inf" || str == "-inf" || str == "inff" || str == "-inff")
+	else if (str == "+inf" || str == "-inf" || str == "+inff" || str == "-inff")
 		return (INF);
 	else
 	{
