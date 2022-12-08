@@ -12,8 +12,6 @@
 
 #include "easyfind.hpp"
 #include <iostream>
-#include "colors.h"
-#include <cstdlib>
 
 int	main()
 {
