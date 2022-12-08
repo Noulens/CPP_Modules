@@ -2,7 +2,7 @@
 ## Variables ##
 ###############
 
-NAME		=	template
+NAME		=	easyfind
 
 VPATH		=	.
 ## add library here (minilibx, ncurses, libft, ...)
