@@ -1,56 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Array.hpp                                          :+:      :+:    :+:   */
+/*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 19:42:26 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/12/07 22:25:37 by tnoulens         ###   ########.fr       */
+/*   Updated: 2022/12/08 13:45:20 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __ARRAY__HPP__
-# define __ARRAY__HPP__
+#ifndef __EASYFIND__HPP__
+# define __EASYFIND__HPP__
 
 # include <iostream>
 
 template <typename T>
-class Array
+class Easyfind
 {
 	private:
 		T 		*_array;
 		size_t	_len;
 	public:
-		Array<T>();
-		~Array<T>();
-		Array<T>(const unsigned int &n);
-		Array<T>(const Array &copy);
-		Array &operator = (const Array &assign);
+		Easyfind<T>();
+		~Easyfind<T>();
+		Easyfind<T>(const unsigned int &n);
+		Easyfind<T>(const Easyfind &copy);
+		Easyfind &operator = (const Easyfind &assign);
 		T &operator [] (size_t idx) const;
 		size_t	size(void) const;
 };
 
 template <typename T>
-Array<T>::Array(): _array(NULL), _len(0)
+Easyfind<T>::Easyfind(): _array(NULL), _len(0)
 {
 }
 
 template <typename T>
-Array<T>::~Array()
+Easyfind<T>::~Easyfind()
 {
 	if (this->_len)
 		delete[] this->_array;
 }
 
 template <typename T>
-Array<T>::Array(const unsigned int &n): _len(n)
+Easyfind<T>::Easyfind(const unsigned int &n): _len(n)
 {
 	this->_array = new T[n]();
 }
 
 template <typename T>
-T	&Array<T>::operator [] (size_t idx) const
+T	&Easyfind<T>::operator [] (size_t idx) const
 {
 	if (idx >= this->_len)
 	{
@@ -60,7 +60,7 @@ T	&Array<T>::operator [] (size_t idx) const
 }
 
 template <typename T>
-Array<T>::Array(Array<T> const  &copy)
+Easyfind<T>::Easyfind(Easyfind<T> const  &copy)
 {
 	this->_array = new T[copy.size()]();
 	this->_len = copy.size();
@@ -71,7 +71,7 @@ Array<T>::Array(Array<T> const  &copy)
 }
 
 template <typename T>
-Array<T> &Array<T>::operator = (const Array<T> &assign)
+Easyfind<T> &Easyfind<T>::operator = (const Easyfind<T> &assign)
 {
 	if (this->_len)
 		delete[] this->_array;
@@ -86,7 +86,7 @@ Array<T> &Array<T>::operator = (const Array<T> &assign)
 
 
 template <typename T>
-size_t	Array<T>::size(void) const
+size_t	Easyfind<T>::size(void) const
 {
 	return (this->_len);
 }
