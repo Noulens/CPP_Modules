@@ -32,7 +32,7 @@ Span &Span::operator = (const Span &assign)
 {
 	this->_SpanSize = assign.getSize();
 	this->_integers.clear();
-	this->_integers.insert((this->_integers.end(), assign.getIntegers.begin(), assign.getIntegers.end());
+	this->_integers.insert((this->_integers.end(), assign.getIntegers().begin(), assign.getIntegers().end()));
 	return (*this);
 }
 
@@ -40,8 +40,7 @@ Span::Span(const Span &copy)
 {
 	this->_SpanSize = copy.getSize();
 	this->_integers.clear();
-	this->_integers.insert((this->_integers.end(), copy.getIntegers.begin(), copy.getIntegers.end());
-	return (*this);
+	this->_integers.insert((this->_integers.end(), copy.getIntegers().begin(), copy.getIntegers().end()));
 }
 
 unsigned int	Span::shortestSpan(void) const
@@ -79,7 +78,7 @@ void	Span::addNumber(unsigned int n)
 	this->_integers.push_back(n);
 }
 
-unsigned int	Span::getSize(void) const;
+unsigned int	Span::getSize(void) const
 {
 	return (this->_SpanSize);
 }

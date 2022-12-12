@@ -52,8 +52,7 @@ class Span
 		void				addNumber(unsigned int n);
 		unsigned int		getSize(void) const;
 		std::vector<int>	getIntegers(void)const;
-		void				addMany(std::vector<int>::iterator begin,
-									std::vector<int>::iterator end);
+		void				addMany(std::vector<int>::iterator begin, std::vector<int>::iterator end);
 };
 
 #endif
