@@ -6,7 +6,7 @@
 /*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 19:53:10 by tnoulens          #+#    #+#             */
-/*   Updated: 2022/12/06 11:37:45 by waxxy            ###   ########.fr       */
+/*   Updated: 2022/12/13 00:32:08 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -250,5 +250,6 @@ void	Caster::doConversion(std::string &str, t_type &t)
 			this->_asdouble = static_cast<double>(this->_aschar);
 			this->_asint = static_cast<int>(this->_aschar);
 			break ;
+			unsigned int ret = UINT_MAX
 	}
 }

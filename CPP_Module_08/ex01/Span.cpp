@@ -20,7 +20,7 @@ Span::Span(): _SpanSize(0)
 Span::~Span()
 {
 	if (_SpanSize > 0)
-		_integers.empty();
+		_integers.clear();
 }
 
 Span::Span(unsigned int N): _SpanSize(N)
@@ -46,12 +46,30 @@ Span::Span(const Span &copy)
 
 unsigned int	Span::shortestSpan(void) const
 {
-
+	if (this->_integers.size() == 1 || this->_integers.empty())
+		throw(Span::SpanEmpty());
+	if (!std::is_sorted(this->_integers.begin(), this->_integers.end()))
+		std::sort(this->_integers.begin(), this->_integers.end());
+	std::vector<int>::iterator it = this->_integers.begin();
+	int	i = 0;
+	unsigned int ret = UINT_MAX;
+	while (it != this->_integers.end())
+	{
+		if (this->_integers[i + 1] - this->_integers[i] < ret)
+			ret = this->_integers[i + 1] - this->_integers[i];
+		++i;
+		++it;
+	}
+	return (ret);
 }
 
 unsigned int	Span::longestSpan(void) const
 {
-
+	if (this->_integers.size() == 1 || this->_integers.empty())
+		throw(Span::SpanEmpty());
+	if (!std::is_sorted(this->_integers.begin(), this->_integers.end()))
+		std::sort(this->_integers.begin(), this->_integers.end());
+	return (this->_integers[this->_integers.size() - 1] - this->_integers[0]);
 }
 
 void	Span::addNumber(unsigned int n)
@@ -77,4 +95,6 @@ void	Span::addMany(std::vector<int>::iterator begin,	std::vector<int>::iterator 
 	{
 		this->addNumber(*it);
 	}
+	if (!std::is_sorted(begin, end))
+		std::sort(begin, end);
 }
