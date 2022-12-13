@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/12 22:27:28 by waxxy             #+#    #+#             */
-/*   Updated: 2022/12/12 22:27:34 by waxxy            ###   ########.fr       */
+/*   Created: 2022/12/12 22:29:44 by waxxy             #+#    #+#             */
+/*   Updated: 2022/12/12 22:29:48 by waxxy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Span.hpp"
+#include "./include/Span.hpp"
 
 Span::Span(): _SpanSize(0)
 {
@@ -32,7 +32,7 @@ Span &Span::operator = (const Span &assign)
 {
 	this->_SpanSize = assign.getSize();
 	this->_integers.clear();
-	this->_integers.insert((this->_integers.end(), assign.getIntegers().begin(), assign.getIntegers().end()));
+	this->_integers.insert(this->_integers.end(), assign.getIntegers().begin(), assign.getIntegers().end());
 	return (*this);
 }
 
@@ -40,21 +40,20 @@ Span::Span(const Span &copy)
 {
 	this->_SpanSize = copy.getSize();
 	this->_integers.clear();
-	this->_integers.insert((this->_integers.end(), copy.getIntegers().begin(), copy.getIntegers().end()));
+	this->_integers.insert(this->_integers.end(), copy.getIntegers().begin(), copy.getIntegers().end());
 }
 
-unsigned int	Span::shortestSpan(void) const
+unsigned int	Span::shortestSpan(void)
 {
 	if (this->_integers.size() == 1 || this->_integers.empty())
 		throw(Span::SpanEmpty());
-	if (!std::is_sorted(this->_integers.begin(), this->_integers.end()))
-		std::sort(this->_integers.begin(), this->_integers.end());
-	std::vector<int>::iterator it = this->_integers.begin();
+	std::sort(_integers.begin(), _integers.end());
+	std::vector<int>::const_iterator it = this->_integers.begin();
 	int	i = 0;
-	unsigned int ret = UINT_MAX;
+	int	ret = INT_MAX;
 	while (it != this->_integers.end())
 	{
-		if (this->_integers[i + 1] - this->_integers[i] < ret)
+		if (this->_integers[i + 1] - this->_integers[i] < ret && this->_integers[i + 1] - this->_integers[i] >=0)
 			ret = this->_integers[i + 1] - this->_integers[i];
 		++i;
 		++it;
@@ -62,12 +61,11 @@ unsigned int	Span::shortestSpan(void) const
 	return (ret);
 }
 
-unsigned int	Span::longestSpan(void) const
+unsigned int	Span::longestSpan(void)
 {
 	if (this->_integers.size() == 1 || this->_integers.empty())
 		throw(Span::SpanEmpty());
-	if (!std::is_sorted(this->_integers.begin(), this->_integers.end()))
-		std::sort(this->_integers.begin(), this->_integers.end());
+	std::sort(this->_integers.begin(), this->_integers.end());
 	return (this->_integers[this->_integers.size() - 1] - this->_integers[0]);
 }
 
@@ -94,6 +92,4 @@ void	Span::addMany(std::vector<int>::iterator begin,	std::vector<int>::iterator 
 	{
 		this->addNumber(*it);
 	}
-	if (!std::is_sorted(begin, end))
-		std::sort(begin, end);
 }

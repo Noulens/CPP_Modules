@@ -10,14 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __SPAN__HPP__
-# define __SPAN__HPP__
+#ifndef __SPAN__H__
+# define __SPAN__H__
 
 # include <iostream>
 # include <string>
-# include <algorithm>
+# include <climits>
+# include <list>
 # include <vector>
-# include <limits.h>
+# include <map>
+#include <algorithm>
+#include <exception>
 
 class Span
 {
@@ -47,8 +50,8 @@ class Span
 					return ("Span is empty or contains only one element\n");
 				}
 		};
-		unsigned int		shortestSpan(void) const;
-		unsigned int		longestSpan(void) const;
+		unsigned int		shortestSpan(void);
+		unsigned int		longestSpan(void);
 		void				addNumber(unsigned int n);
 		unsigned int		getSize(void) const;
 		std::vector<int>	getIntegers(void)const;
