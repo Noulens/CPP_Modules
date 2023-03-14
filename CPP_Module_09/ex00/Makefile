@@ -74,7 +74,6 @@ $(BUILDIR)/%.o:	%.cpp | $(DEPDIR)
 				@printf '$(DELPREV)%-*s$(GREEN)$(CHECK)$(DEFAULT)\n' $(BODY_WIDTH) $(notdir $@)
 
 $(NAME):		$(OBJ)
-				@printf "$(BLUE)Using $(UNAME) shell\n$(DEFAULT)"
 				@printf "$(YELLOW)Linking source files and generating $@ binary...\n$(DEFAULT)"
 				$(CXX) $(CXXFLAGS) $(CPPFLAGS) -o $@ $^ $(LDFLAGS)
 				@printf "$(DELPREV)$(GREEN)Binary generated$(DEFAULT)\n"

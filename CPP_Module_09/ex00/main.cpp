@@ -16,19 +16,18 @@ int	main(int argc, char **argv)
 {
 	BitcoinExchange	btcex;
 
-	if (argc != 3)
+	if (argc != 2)
 	{
 		std::cout << "Usage: ./btc <path_to_database>" << std::endl;
 	}
 	else
 	{
-		if (!BitcoinExchange::buildDatabase(argv[2], btcex))
+		if (!BitcoinExchange::buildDatabase(argv[1], btcex))
 		{
-			std::cout << "Error: could not open file" << std::endl;
+			std::cout << "Error: incorrect date in .csv database" << std::endl;
 			return (1);
 		}
 	}
 	// Get the input.txt file
-	;
 	return (0);
 }

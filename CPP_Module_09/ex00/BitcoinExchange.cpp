@@ -83,15 +83,22 @@ bool BitcoinExchange::buildDatabase(const char *filename, BitcoinExchange &btcex
 	}
 	// Read in the BitcoinPrice information and store it in the map
 	std::string line;
+	// Skip the first line
+	std::getline(file, line);
 	while (std::getline(file, line))
 	{
 		std::istringstream	iss(line);
 		std::string			date, price_str;
 		float				price;
-
 		// Parse the date and price from the line
 		if (std::getline(iss, date, ',') && std::getline(iss, price_str))
 		{
+			// Check date format
+			if (!btcex.checkdate(date))
+			{
+				std::cout << "Error: bad input => " << date << std::endl;
+				return (false);
+			}
 			// Convert the price string to a float
 			std::istringstream price_iss(price_str);
 			price_iss >> price;
@@ -99,4 +106,5 @@ bool BitcoinExchange::buildDatabase(const char *filename, BitcoinExchange &btcex
 			btcex.data[date] = price;
 		}
 	}
+	return (true);
 }
