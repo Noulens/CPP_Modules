@@ -85,6 +85,11 @@ bool BitcoinExchange::buildDatabase(const char *filename, BitcoinExchange &btcex
 	std::string line;
 	// Skip the first line
 	std::getline(file, line);
+	if (line != "date,exchange_rate")
+	{
+		std::cout << "Error: incorrect headers in .csv database" << std::endl;
+		return (false);
+	}
 	while (std::getline(file, line))
 	{
 		std::istringstream	iss(line);

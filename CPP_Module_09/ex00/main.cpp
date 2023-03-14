@@ -23,10 +23,7 @@ int	main(int argc, char **argv)
 	else
 	{
 		if (!BitcoinExchange::buildDatabase(argv[1], btcex))
-		{
-			std::cout << "Error: incorrect date in .csv database" << std::endl;
 			return (1);
-		}
 	}
 	// Get the input.txt file
 	return (0);
