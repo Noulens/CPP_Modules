@@ -14,11 +14,10 @@
 
 BitcoinExchange::BitcoinExchange() : _regex()
 {
-	const char *pattern = "^\\d{4}-\\d{2}-\\d{2}$"; // regex pattern for YYYY-MM-DD format
 	try
 	{
 		// compile the regular expression
-		if (regcomp(&this->_regex, pattern, REG_EXTENDED))
+		if (regcomp(&this->_regex, PATTERN, REG_EXTENDED))
 			throw BitcoinExchange::regex_error();
 	}
 	catch (const BitcoinExchange::regex_error &e)

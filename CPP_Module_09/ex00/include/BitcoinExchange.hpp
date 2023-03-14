@@ -22,6 +22,10 @@
 # include <fstream>
 # include <sstream>
 
+// regex pattern for YYYY-MM-DD format
+// https://regexpattern.com/date-yyyy-mm-dd/
+# define PATTERN "^[0-9]{4}-(((0[13578]|(10|12))-(0[1-9]|[1-2][0-9]|3[0-1]))|(02-(0[1-9]|[1-2][0-9]))|((0[469]|11)-(0[1-9]|[1-2][0-9]|30)))$"
+
 class BitcoinExchange
 {
 	private:

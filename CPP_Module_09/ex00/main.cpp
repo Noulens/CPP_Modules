@@ -22,7 +22,11 @@ int	main(int argc, char **argv)
 	}
 	else
 	{
-		BitcoinExchange::buildDatabase(argv[2], btcex);
+		if (!BitcoinExchange::buildDatabase(argv[2], btcex))
+		{
+			std::cout << "Error: could not open file" << std::endl;
+			return (1);
+		}
 	}
 	// Get the input.txt file
 	;
