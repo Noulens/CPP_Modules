@@ -14,8 +14,17 @@
 
 int	main(int argc, char **argv)
 {
-	BitcoinExchange	btc;
-	(void)argc;
-	(void)argv;
+	BitcoinExchange	btcex;
+
+	if (argc != 3)
+	{
+		std::cout << "Usage: ./btc <path_to_database>" << std::endl;
+	}
+	else
+	{
+		BitcoinExchange::buildDatabase(argv[2], btcex);
+	}
+	// Get the input.txt file
+	;
 	return (0);
 }
