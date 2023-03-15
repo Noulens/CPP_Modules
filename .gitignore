@@ -1,5 +1,8 @@
 # Other
 
+*.txt
+*.csv
+
 .vscode/
 
 # Prerequisites
