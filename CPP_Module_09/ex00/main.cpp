@@ -18,12 +18,28 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		std::cout << "Usage: ./btc <path_to_database>" << std::endl;
+		std::cout << "Error: could not open file." << std::endl;
 	}
 	else
 	{
-		if (!BitcoinExchange::buildDatabase(argv[1], btcex))
+		try
+		{
+			BitcoinExchange::buildDatabase("./cpp_09/data.csv", btcex);
+		}
+		catch (const BitcoinExchange::database_error &e)
+		{
+			std::cout << e.what() << std::endl;
 			return (1);
+		}
+		try
+		{
+			btcex.takeInput(argv[1]);
+		}
+		catch (const BitcoinExchange::database_error &e)
+		{
+			std::cout << e.what() << std::endl;
+			return (1);
+		}
 	}
 	// Get the input.txt file
 	return (0);
