@@ -34,6 +34,7 @@ class BitcoinExchange
 {
 	private:
 	regex_t _regex;
+	std::map<std::string, float, std::greater<std::string> >	data;
 	public:
 	BitcoinExchange();
 	BitcoinExchange(const BitcoinExchange &copy);
@@ -44,7 +45,7 @@ class BitcoinExchange
 	static void	buildDatabase(const char *filename, BitcoinExchange &btcex);
 	void		takeInput(const char *filename);
 	std::map<std::string, float>::iterator	findClosestDate(std::string const &date);
-	std::map<std::string, float, std::greater<std::string> >	data;
+	std::map<std::string, float, std::greater<std::string> > getData() const;
 
 	class regex_error: public std::exception
 	{

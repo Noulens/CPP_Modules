@@ -44,6 +44,11 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &assign)
 	return (*this);
 }
 
+std::map<std::string, float, std::greater<std::string> > BitcoinExchange::getData() const
+{
+	return (this->data);
+}
+
 bool BitcoinExchange::checkdate(const std::string &date)
 {
 	if (!regexec(&this->_regex, date.c_str(), 0, NULL, 0))
@@ -78,7 +83,7 @@ void BitcoinExchange::returnPrices(std::string const &date, float const &quantit
 		std::cout << "Error: not a positive number." << std::endl;
 	else if (quantity > 1000)
 		std::cout << "Error: too large a number." << std::endl;
-	else // if (this->data.find(date) != this->data.end())
+	else
 	{
 		this->findClosestDate(date);
 		std::cout << date << " => " << quantity << " = "

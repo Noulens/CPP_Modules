@@ -17,9 +17,7 @@ int	main(int argc, char **argv)
 	BitcoinExchange	btcex;
 
 	if (argc != 2)
-	{
 		std::cout << "Error: could not open file." << std::endl;
-	}
 	else
 	{
 		try
@@ -41,6 +39,5 @@ int	main(int argc, char **argv)
 			return (1);
 		}
 	}
-	// Get the input.txt file
 	return (0);
 }
