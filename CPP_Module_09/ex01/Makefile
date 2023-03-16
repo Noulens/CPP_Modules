@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/03/16 13:51:28 by tnoulens          #+#    #+#              #
+#    Updated: 2023/03/16 13:51:35 by tnoulens         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 ###############
 ## Variables ##
 ###############
@@ -14,7 +26,7 @@ BUILDIR		=	build
 DEPDIR		=	$(BUILDIR)/.deps
 
 SRC			=	main.cpp\
-				BitcoinExchange.cpp
+				RPN.cpp
 
 OBJ			=	$(SRC:%.cpp=$(BUILDIR)/%.o)
 DEP			=	$(SRC:%.cpp=$(DEPDIR)/%.d)
