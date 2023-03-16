@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: waxxy <waxxy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tnoulens <tnoulens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 17:48:22 by waxxy             #+#    #+#             */
-/*   Updated: 2023/03/13 17:48:23 by waxxy            ###   ########.fr       */
+/*   Updated: 2023/03/16 13:50:38 by tnoulens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,19 @@
 class BitcoinExchange
 {
 	private:
-	regex_t _regex;
-	std::map<std::string, float, std::greater<std::string> >	data;
+		regex_t _regex;
+		void		returnPrices(std::string const &date, float const &quantity);
+		bool		checkdate(const std::string &date);
+		std::map<std::string, float, std::greater<std::string> >	data;
+		std::map<std::string, float>::iterator	findClosestDate(std::string const &date);
 	public:
-	BitcoinExchange();
-	BitcoinExchange(const BitcoinExchange &copy);
-	~BitcoinExchange();
-	BitcoinExchange &operator=(const BitcoinExchange &assign);
-	void		returnPrices(std::string const &date, float const &quantity);
-	bool		checkdate(const std::string &date);
-	static void	buildDatabase(const char *filename, BitcoinExchange &btcex);
-	void		takeInput(const char *filename);
-	std::map<std::string, float>::iterator	findClosestDate(std::string const &date);
-	std::map<std::string, float, std::greater<std::string> > getData() const;
+		BitcoinExchange();
+		BitcoinExchange(const BitcoinExchange &copy);
+		~BitcoinExchange();
+		BitcoinExchange &operator=(const BitcoinExchange &assign);
+		static void	buildDatabase(const char *filename, BitcoinExchange &btcex);
+		void		takeInput(const char *filename);
+		std::map<std::string, float, std::greater<std::string> > getData() const;
 
 	class regex_error: public std::exception
 	{
