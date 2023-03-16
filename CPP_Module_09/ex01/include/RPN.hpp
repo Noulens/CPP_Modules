@@ -26,7 +26,7 @@ class RPN
 		RPN(const RPN &copy);
 		~RPN();
 		RPN & operator=(const RPN &assign);
-		std::stack<int> getStack() const;
+		std::stack<int, std::deque<int> > getStack() const;
 		int doRPN(const std::string &str);
 
 		class RPNException: public std::exception
