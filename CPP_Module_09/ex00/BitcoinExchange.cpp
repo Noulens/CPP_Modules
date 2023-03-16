@@ -161,6 +161,8 @@ void BitcoinExchange::takeInput(const char *filename)
 		std::istringstream iss(line);
 		std::string date, value_str;
 		float value;
+		if (line.length() == 0)
+			continue;
 		if (std::getline(iss, date, '|') && std::getline(iss, value_str))
 		{
 			std::istringstream value_iss(value_str);
