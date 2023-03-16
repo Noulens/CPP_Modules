@@ -14,7 +14,7 @@ BUILDIR		=	build
 DEPDIR		=	$(BUILDIR)/.deps
 
 SRC			=	main.cpp\
-				BitcoinExchange.cpp
+				PmergeMe.cpp
 
 OBJ			=	$(SRC:%.cpp=$(BUILDIR)/%.o)
 DEP			=	$(SRC:%.cpp=$(DEPDIR)/%.d)
