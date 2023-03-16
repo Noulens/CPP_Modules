@@ -85,7 +85,6 @@ void BitcoinExchange::returnPrices(std::string const &date, float const &quantit
 		std::cout << "Error: too large a number." << std::endl;
 	else
 	{
-		this->findClosestDate(date);
 		std::cout << date << " => " << quantity << " = "
 				  << this->findClosestDate(date)->second * quantity << std::endl;
 	}
@@ -129,6 +128,7 @@ void BitcoinExchange::buildDatabase(const char *filename, BitcoinExchange &btcex
 			btcex.data[date] = price;
 		}
 	}
+	file.close();
 }
 
 /*
@@ -174,4 +174,5 @@ void BitcoinExchange::takeInput(const char *filename)
 		else if (value_str.empty() && this->checkdate(date))
 			std::cout << "Error: missing value" << std::endl;
 	}
+	file.close();
 }
