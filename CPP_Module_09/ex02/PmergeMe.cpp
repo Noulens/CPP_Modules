@@ -85,6 +85,12 @@ void	PmergeMe::VsortMI(const int &argc, const char **argv)
 	std::stringstream ss(line);
 	while (ss >> tmp)
 		this->_v.push_back(tmp);
+	// Duplicate
+	size_t size = _v.size();
+	for (size_t i = 0; i < size; i++)
+		for (size_t j = i + 1; j < size; j++)
+			if (_v[i] == _v[j])
+				throw PmergeMe::PmergeMeException();
 	// Sort
 
 	this->_timeV = ((double) (end - start) / CLOCKS_PER_SEC) * 1000000;
@@ -110,6 +116,12 @@ void	PmergeMe::LsortMI(const int &argc, const char **argv)
 	std::stringstream ss(line);
 	while (ss >> tmp)
 		this->_l.push_back(tmp);
+	// Duplicate
+	std::list<int>::iterator it1, it2;
+	for (it1 = _l.begin(); it1 != _l.end(); it1++)
+		for (it2 = it1; ++it2 != _l.end(); )
+			if (*it1 == *it2)
+				throw PmergeMe::PmergeMeException();
 	// Sort
 
 	this->_timeL = ((double) (end - start) / CLOCKS_PER_SEC) * 1000000;
