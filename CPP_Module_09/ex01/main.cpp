@@ -27,6 +27,7 @@ int	main(int argc, char **argv)
 	catch (const RPN::RPNException &e)
 	{
 		std::cout << e.what() << std::endl;
+		return (1);
 	}
     return (0);
 }
