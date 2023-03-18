@@ -74,6 +74,8 @@ const char *BitcoinExchange::database_error::what() const throw()
 
 std::map<std::string, float>::iterator BitcoinExchange::findClosestDate(std::string const &date)
 {
+	if (this->data.lower_bound(date) == this->data.end())
+		return (--this->data.end());
 	return (data.lower_bound(date));
 }
 
