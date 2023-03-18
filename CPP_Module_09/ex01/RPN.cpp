@@ -52,6 +52,7 @@ int	RPN::doRPN(const std::string &str)
 			continue;
 		if (std::isdigit(str[i]))
 			this->_stack.push(str[i] - '0');
+		// Take negative numbers into consideration
 		else if (str[i] == '-' && std::isdigit(str[i + 1]))
 			this->_stack.push(-(str[++i] - '0'));
 		else
