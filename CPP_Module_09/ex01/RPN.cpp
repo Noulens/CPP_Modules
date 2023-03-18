@@ -46,6 +46,8 @@ int	RPN::doRPN(const std::string &str)
 	int	b;
 	int	a;
 
+	if (str.empty())
+		throw RPN::RPNException();
 	for (size_t i = 0; i < str.size(); i++)
 	{
 		if (std::isspace(str[i]))
@@ -87,5 +89,7 @@ int	RPN::doRPN(const std::string &str)
 			}
 		}
 	}
+	if (this->_stack.empty())
+		throw RPN::RPNException();
 	return this->_stack.top();
 }
