@@ -2,6 +2,7 @@
 btc
 *.txt
 *.csv
+.idea
 
 .vscode/
 

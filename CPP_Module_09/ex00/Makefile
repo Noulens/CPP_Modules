@@ -26,7 +26,6 @@ LDFLAGS		=	$(addprefix -L, $(LIBDIR)) $(addprefix -l, $(LIB))
 DEPFLAGS	=	-MT $@ -MMD -MP -MF $(DEPDIR)/$*.d
 
 RM			=	/bin/rm -rf
-UNAME		:=	$(shell uname -s)
 
 # FG COLORS
 DEFAULT		=	\033[0m
