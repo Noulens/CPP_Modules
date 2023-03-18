@@ -52,6 +52,8 @@ int	RPN::doRPN(const std::string &str)
 			continue;
 		if (std::isdigit(str[i]))
 			this->_stack.push(str[i] - '0');
+		else if (str[i] == '-' && std::isdigit(str[i + 1]))
+			this->_stack.push(-(str[++i] - '0'));
 		else
 		{
 			if (this->_stack.size() >= 2)
