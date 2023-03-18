@@ -26,7 +26,6 @@ LDFLAGS		=	$(addprefix -L, $(LIBDIR)) $(addprefix -l, $(LIB))
 DEPFLAGS	=	-MT $@ -MMD -MP -MF $(DEPDIR)/$*.d
 
 RM			=	/bin/rm -rf
-UNAME		:=	$(shell uname -s)
 
 # FG COLORS
 DEFAULT		=	\033[0m
@@ -74,7 +73,6 @@ $(BUILDIR)/%.o:	%.cpp | $(DEPDIR)
 				@printf '$(DELPREV)%-*s$(GREEN)$(CHECK)$(DEFAULT)\n' $(BODY_WIDTH) $(notdir $@)
 
 $(NAME):		$(OBJ)
-				@printf "$(BLUE)Using $(UNAME) shell\n$(DEFAULT)"
 				@printf "$(YELLOW)Linking source files and generating $@ binary...\n$(DEFAULT)"
 				$(CXX) $(CXXFLAGS) $(CPPFLAGS) -o $@ $^ $(LDFLAGS)
 				@printf "$(DELPREV)$(GREEN)Binary generated$(DEFAULT)\n"

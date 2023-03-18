@@ -34,9 +34,9 @@ class PmergeMe
 		double _timeV;
 		double _timeL;
 		std::string _line;
-		void merge_insertion_sortL(std::list<int> &lst, std::list<int>::iterator left, std::list<int>::iterator right);
+		void MI_sortL(std::list<int> &lst, std::list<int>::iterator left, std::list<int>::iterator right);
 		void mergeL(std::list<int>::iterator left, std::list<int>::iterator mid, std::list<int>::iterator right);
-		void merge_insertion_sortVE(std::vector<int> &vec, int left, int right);
+		void MI_sortVE(std::vector<int> &vec, int left, int right);
 		void mergeVE(std::vector<int> &vec, int left, int mid, int right);
 	public:
 		PmergeMe();

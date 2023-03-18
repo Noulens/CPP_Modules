@@ -112,14 +112,14 @@ void PmergeMe::mergeVE(std::vector<int> &vec, int left, int mid, int right)
 	}
 }
 
-void PmergeMe::merge_insertion_sortVE(std::vector<int> &vec, int left, int right)
+void PmergeMe::MI_sortVE(std::vector<int> &vec, int left, int right)
 {
 	// sort the sublist lst[left..right] recursively
 	if (right - left > KINSERTIONSORTTHRESHOLD)
 	{
 		int mid = (left + right) / 2;
-		this->merge_insertion_sortVE(vec, left, mid);
-		this->merge_insertion_sortVE(vec, mid + 1, right);
+		this->MI_sortVE(vec, left, mid);
+		this->MI_sortVE(vec, mid + 1, right);
 		this->mergeVE(vec, left, mid, right);
 	}
 	else
@@ -168,7 +168,7 @@ void PmergeMe::VsortMI(const int &argc, const char **argv)
 			if (_v[i] == _v[j])
 				throw PmergeMe::PmergeMeException();
 	// Sort
-	this->merge_insertion_sortVE(this->_v, 0, this->_v.size() - 1);
+	this->MI_sortVE(this->_v, 0, this->_v.size() - 1);
 	end = clock();
 	this->_timeV = ((double) (end - start) / CLOCKS_PER_SEC) * 1000000;
 }
@@ -214,15 +214,15 @@ void PmergeMe::mergeL(std::list<int>::iterator left, std::list<int>::iterator mi
 	}
 }
 
-void PmergeMe::merge_insertion_sortL(std::list<int> &lst, std::list<int>::iterator left, std::list<int>::iterator right)
+void PmergeMe::MI_sortL(std::list<int> &lst, std::list<int>::iterator left, std::list<int>::iterator right)
 {
 	// sort the sublist lst[left..right] recursively
 	if (std::distance(left, right) > KINSERTIONSORTTHRESHOLD)
 	{
 		std::list<int>::iterator mid = left;
 		std::advance(mid, std::distance(left, right) / 2);
-		this->merge_insertion_sortL(lst, left, mid);
-		this->merge_insertion_sortL(lst, mid, right);
+		this->MI_sortL(lst, left, mid);
+		this->MI_sortL(lst, mid, right);
 		this->mergeL(left, mid, right);
 	}
 	else
@@ -276,7 +276,7 @@ void	PmergeMe::LsortMI(const int &argc, const char **argv)
 			if (*it1 == *it2)
 				throw PmergeMe::PmergeMeException();
 	// Sort
-	this->merge_insertion_sortL(this->_l, this->_l.begin(), this->_l.end());
+	this->MI_sortL(this->_l, this->_l.begin(), this->_l.end());
 	end = clock();
 	this->_timeL = ((double) (end - start) / CLOCKS_PER_SEC) * 1000000;
 }
