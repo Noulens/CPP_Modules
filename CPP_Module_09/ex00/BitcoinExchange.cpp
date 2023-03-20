@@ -116,6 +116,7 @@ void BitcoinExchange::buildDatabase(const char *filename, BitcoinExchange &btcex
 	if (line != "date,exchange_rate")
 	{
 		std::cout << "Error: incorrect headers in .csv database" << std::endl;
+		file.close();
 		throw BitcoinExchange::database_error();
 	}
 	while (std::getline(file, line))
@@ -126,7 +127,10 @@ void BitcoinExchange::buildDatabase(const char *filename, BitcoinExchange &btcex
 		if (std::getline(iss, date, ',') && std::getline(iss, price_str))
 		{
 			if (!btcex.checkdate(date))
+			{
+				file.close();
 				throw BitcoinExchange::database_error();
+			}
 			std::istringstream price_iss(price_str);
 			price_iss >> price;
 			btcex.data[date] = price;
@@ -157,6 +161,7 @@ void BitcoinExchange::takeInput(const char *filename)
 	if (line != "date | value")
 	{
 		std::cout << "Error: incorrect headers in input file" << std::endl;
+		file.close();
 		throw BitcoinExchange::database_error();
 	}
 	while (std::getline(file, line))
